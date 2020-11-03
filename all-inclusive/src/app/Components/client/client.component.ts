@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'app-client',
@@ -7,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ClientComponent implements OnInit {
   // user comming as a props from signin and to be sent as a props to messages component
-  user: any = {}
+  @Input() user: any ;
   eventsArray: any = []
   constructor() { }
 

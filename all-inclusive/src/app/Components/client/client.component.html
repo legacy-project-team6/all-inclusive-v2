@@ -1,19 +1,25 @@
 <div>
-    <Container fluid>
-      <div className='row2'>
-      <Row>
-        <Col>
+  <!-- container to div -->
+    <div>
+      <div>
+        <!-- row to div -->
+      <div>
+        <!-- Col to div -->
+        <div>
           <SideNav  [user]="user"/>
           <app-messages><app-messages/>
-        </Col>
-        <Col>
-          
-        </Col>
+            <!-- Col close to div -->
+          </div>
+          <!-- col to div -->
+        <div>
+        <!-- col close to div   -->
+        </div>
         <div>
             <app-event-list><app-event-list/>
         </div>
-
-      </Row>
+  <!-- row closing div -->
       </div>
-    </Container>
+      </div>
+      <!-- container closing -->
+    </div>
   </div>
