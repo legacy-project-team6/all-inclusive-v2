@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule, Component } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -14,6 +14,7 @@ import { CompanyComponent } from './Components/company/company.component';
 import { MessagesComponent } from './Components/messages/messages.component';
 import { PurchaseComponent } from './Components/purchase/purchase.component';
 import { SideNavComponent } from './Components/side-nav/side-nav.component';
+import { SideNavCompComponent } from './Components/side-nav-comp/side-nav-comp.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { SideNavComponent } from './Components/side-nav/side-nav.component';
     CompanyComponent,
     MessagesComponent,
     PurchaseComponent,
-    SideNavComponent
+    SideNavComponent,
+    SideNavCompComponent
   ],
   imports: [
     BrowserModule,
