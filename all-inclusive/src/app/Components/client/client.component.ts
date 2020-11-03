@@ -6,7 +6,9 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./client.component.css']
 })
 export class ClientComponent implements OnInit {
-
+  // user comming as a props from signin and to be sent as a props to messages component
+  user: any = {}
+  eventsArray: any = []
   constructor() { }
 
   ngOnInit(): void {
