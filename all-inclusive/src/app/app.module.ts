@@ -13,6 +13,7 @@ import { ClientComponent } from './Components/client/client.component';
 import { CompanyComponent } from './Components/company/company.component';
 import { MessagesComponent } from './Components/messages/messages.component';
 import { PurchaseComponent } from './Components/purchase/purchase.component';
+import { SideNavComponent } from './Components/side-nav/side-nav.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { PurchaseComponent } from './Components/purchase/purchase.component';
     ClientComponent,
     CompanyComponent,
     MessagesComponent,
-    PurchaseComponent
+    PurchaseComponent,
+    SideNavComponent
   ],
   imports: [
     BrowserModule,
