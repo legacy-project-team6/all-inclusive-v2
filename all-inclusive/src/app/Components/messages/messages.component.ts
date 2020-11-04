@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./messages.component.css']
 })
 export class MessagesComponent implements OnInit {
-   status: boolean = true;
+   status: boolean = false;
   constructor() { }
   toggleUp(){
     this.status = !this.status

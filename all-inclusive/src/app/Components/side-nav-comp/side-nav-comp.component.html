@@ -1,11 +1,13 @@
-<div [className]="'inputField'">
+
     <!-- Container to div -->
-    <div [className]="'inputs'">
+    <div [className]="'info'">
         <!-- Image to img -->
       <img src={{company.imgUrlCompany}}/>
       <p>Name: {{company.name}}</p>
       <p>Email adress: {{company.emailCompany}}</p>
       <p>Phone number: {{company.phoneNumberCompany}}</p>
+     </div>
+  <div [className]="'inputField'">
       <h3>Add an event</h3>
       <!-- form label to h2 -->
       <h2>Event Name</h2>
@@ -58,5 +60,4 @@
       <button (click)="addEvent($event)">
         Submit
       </button>
-    </div>
   </div>
