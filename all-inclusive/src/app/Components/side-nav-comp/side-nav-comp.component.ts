@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'app-side-nav-comp',
@@ -6,6 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./side-nav-comp.component.css']
 })
 export class SideNavCompComponent implements OnInit {
+  @Input() company: any;
   eventName: string;
   eventType: string;
   eventPlace: string;
@@ -20,25 +21,25 @@ export class SideNavCompComponent implements OnInit {
   ngOnInit(): void {
   }
   handleChange1(item){
-    this.eventName = item
+    this.eventName = item.target.value
   }
   handleChange2(item){
-    this.eventType = item
+    this.eventType = item.target.value
   }
   handleChange3(item){
-    this.eventPlace = item
+    this.eventPlace = item.target.value
   }
   handleChange4(item){
-    this.eventPlace = item
+    this.eventPlace = item.target.value
   }
   handleChange5(item){
-    this.eventDate = item
+    this.eventDate = item.target.value
   }
   handleChange6(item){
-    this.eventDescription = item
+    this.eventDescription = item.target.value
   }
   handleChange7(item){
-    this.eventImage = item
+    this.eventImage = item.target.value
   }
   // server Data request
   addEvent(e){
