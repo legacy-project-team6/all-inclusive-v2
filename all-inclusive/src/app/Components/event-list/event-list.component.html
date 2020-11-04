@@ -1,1 +1,19 @@
-<p>event-list works!</p>
+
+<div class="event" *ngFor="let event of events index as eventId">
+    <img class="imgUrl" src={{event.imgUrl}} />
+    <h1 class="name">{{event.name}}</h1>
+    <h3 class="type">Type: {{event.type}}</h3>
+    <h3 class="place">Place: {{event.place}}</h3>
+    <h3 class="date">date: {{event.date}}</h3>
+    <h5 class="description">
+     {{event.description}}
+    </h5>
+    
+    <button class="likes" (click)="addLike(eventId)">
+      👍: {{event.like}}
+    </button>
+    <button class="likes" (click)="addDisLike(eventId)">
+      👎: {{event.disLike}}
+    </button>
+  </div>
+  
