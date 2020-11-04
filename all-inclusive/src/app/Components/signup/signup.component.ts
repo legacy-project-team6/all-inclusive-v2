@@ -10,9 +10,15 @@ export class SignupComponent implements OnInit {
   signupForm;
   constructor(private formBuilder: FormBuilder) {
     this.signupForm = this.formBuilder.group({
-      email: '',
-      password: '',
-      type: "client"
+      firstName: "",
+      lastName: "",
+      email: "",
+      password: "",
+      phoneNumber: "",
+      specialNeed: false,
+      type: "client",
+      address: "",
+      name: ""
     });
   }
 
