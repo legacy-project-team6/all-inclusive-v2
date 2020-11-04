@@ -1,0 +1,14 @@
+.CompanyInfo{
+    height: 80vh;
+}
+
+.companyMain{
+    height: 200vh;
+    position: relative;
+}
+
+.msg{
+    position: relative;
+    top: 30vh;
+    left: 40%;
+}

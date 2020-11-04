@@ -1,12 +1,10 @@
-<div>
-    <!-- container to div -->
+<div [className]="'info'">
     <div>
-        <!-- Image to img -->
-      <img src={user.imgUrl}/>
+      <!-- <img src={user.imgUrl}/> -->
       <p>
         Username: {{user.firstName}} - {{user.lastName}}
       </p>
       <p>Email adress: {{user.email}}</p>
       <p>Phone number: {{user.phoneNumber}}</p>
     </div>
-  </div>
+</div>

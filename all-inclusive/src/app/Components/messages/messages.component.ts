@@ -6,9 +6,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./messages.component.css']
 })
 export class MessagesComponent implements OnInit {
-
+   status: boolean = true;
   constructor() { }
-
+  toggleUp(){
+    this.status = !this.status
+  }
   ngOnInit(): void {
   }
 

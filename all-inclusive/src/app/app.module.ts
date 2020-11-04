@@ -15,6 +15,8 @@ import { MessagesComponent } from './Components/messages/messages.component';
 import { PurchaseComponent } from './Components/purchase/purchase.component';
 import { SideNavComponent } from './Components/side-nav/side-nav.component';
 import { SideNavCompComponent } from './Components/side-nav-comp/side-nav-comp.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+
 
 @NgModule({
   declarations: [
@@ -34,7 +36,8 @@ import { SideNavCompComponent } from './Components/side-nav-comp/side-nav-comp.c
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    NgbModule
   ],
   providers: [],
   bootstrap: [AppComponent]

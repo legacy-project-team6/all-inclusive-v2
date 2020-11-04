@@ -1,25 +1,10 @@
+<app-navbar></app-navbar>
 <div>
-  <!-- container to div -->
-    <div>
-      <div>
-        <!-- row to div -->
-      <div>
-        <!-- Col to div -->
-        <div>
-          <app-side-nav  [user]="user"></app-side-nav>
-          <app-messages></app-messages>
-            <!-- Col close to div -->
-          </div>
-          <!-- col to div -->
-        <div>
-        <!-- col close to div   -->
+        <div [className]="'clientMain'">
+          <app-side-nav [className]="'clientInfo'" [user]="user"></app-side-nav>
+          <app-messages [className]="'msg'"></app-messages>
         </div>
         <div>
             <app-event-list></app-event-list>
         </div>
-  <!-- row closing div -->
-      </div>
-      </div>
-      <!-- container closing -->
-    </div>
-  </div>
+</div>

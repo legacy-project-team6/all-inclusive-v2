@@ -7,7 +7,7 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class CompanyComponent implements OnInit {
   // @Input() company: any ;
-  company: {name: 'eb', email: 'emailCompany', phoneNumberCompany: '12345'}
+  company: {name: 'eb', email: 'emailCompany', phoneNumberCompany: '12345', imgUrlCompany: "urlimg"}
   constructor() { }
 
   ngOnInit(): void {

@@ -1,21 +1,10 @@
-<div>
-    <!-- container to div -->
-    <div>
-      <div>
-          <!-- row to div -->
-        <div>
-            <!-- col to div -->
-          <div>
+<app-navbar></app-navbar>
+<div [className]="'companyMain'">
+          <div [className]="'CompanyInfo'">
             <app-side-nav-comp  [company]="company"></app-side-nav-comp>
-            <app-messages></app-messages>
+            <app-messages [className]="'msg'"></app-messages>
             </div>
-            <!-- col to div -->
-          <div></div>
-          <!-- col to div -->
-          <div>
+          <div [className]="'list'">
             <app-event-list></app-event-list>
-            </div>
-        </div>
-      </div>
-    </div>
-  </div>
+          </div>
+</div>
