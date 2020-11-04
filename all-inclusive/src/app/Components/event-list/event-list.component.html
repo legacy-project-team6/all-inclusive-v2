@@ -1,19 +1,28 @@
 
-<div class="event" *ngFor="let event of events index as eventId">
-    <img class="imgUrl" src={{event.imgUrl}} />
-    <h1 class="name">{{event.name}}</h1>
-    <h3 class="type">Type: {{event.type}}</h3>
-    <h3 class="place">Place: {{event.place}}</h3>
-    <h3 class="date">date: {{event.date}}</h3>
-    <h5 class="description">
-     {{event.description}}
-    </h5>
-    
-    <button class="likes" (click)="addLike(eventId)">
-      👍: {{event.like}}
-    </button>
-    <button class="likes" (click)="addDisLike(eventId)">
-      👎: {{event.disLike}}
-    </button>
+<div class="card mb-3" style="max-height: 600px;" *ngFor="let event of events index as eventId">
+  <div class="row no-gutters">
+    <div class="col-md-8">
+      <img src="{{event.imgUrl}}" class="card-img" style="max-height: 600px;" alt="{{event.name}}">
+    </div>
+    <div class="col-md-4" style="padding-left: 50px;">
+      <div class="card-body">
+        <h5 class="card-title">{{event.name}}</h5>
+        <p class="card-text">Type: {{event.type}}</p>
+        <p class="card-text">Place: {{event.place}}</p>
+        <p class="card-text">Date: {{event.date}}</p>
+        <p class="card-text">{{event.description}}</p>
+        <div style="position: absolute;left:30px;bottom: 20px;" *ngIf="true">
+        <button type="button" class="btn btn-outline-primary" style="margin-left: 10px;margin-right: 10px;" (click)="addLike(eventId)">
+          Recommended: {{event.like}}
+        </button>
+        <button type="button" class="btn btn-outline-primary" (click)="addDisLike(eventId)">
+          Not Recommended: {{event.disLike}}
+        </button>
+        <button type="button" class="btn btn-outline-primary" style="margin-left: 10px;" (click)="participate(event)">
+          Participate
+        </button>
+      </div>
+      </div>
+    </div>
   </div>
-  
+</div>

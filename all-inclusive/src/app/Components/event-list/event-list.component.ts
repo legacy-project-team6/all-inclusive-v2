@@ -46,7 +46,9 @@ export class EventListComponent implements OnInit {
       like:0,
       disLike:0
     }
-  ]
+  ];
+
+  participation = [];
   constructor() { }
 
   ngOnInit(): void {
@@ -59,4 +61,7 @@ export class EventListComponent implements OnInit {
     this.events[eventId].disLike=this.events[eventId].disLike+1;
   }
 
+  participate(event){
+    this.participation.push(event)
+  }
 }
