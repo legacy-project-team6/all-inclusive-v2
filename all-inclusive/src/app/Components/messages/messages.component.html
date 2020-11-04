@@ -1,1 +1,18 @@
-<p>messages works!</p>
+
+<div [className]="'allInclusive'">
+    <div [className]="'contact'">
+<h4 [className]="'title'">All Inclusive team </h4>
+    <div> 
+            <p >Contact us via our green number 100200300</p>
+    </div>
+    <div><img src="https://files.slack.com/files-pri/T0178VC0Y48-F01DEPKEKM1/ed79ddcc-fcab-44a3-b050-d54cdffa159c_200x200.png" width="100"/></div>
+    <button (click)="toggleUp()">Send a message?</button>
+</div>
+<div [className]="'messageField'" *ngIf="status">
+    <div>
+<input type="text number" name="text" placeholder="Write a message"/>
+<button type="button">Send</button>
+   </div>
+</div>
+</div>
+
