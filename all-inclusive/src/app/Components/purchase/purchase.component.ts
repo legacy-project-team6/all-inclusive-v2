@@ -1,14 +1,16 @@
 import { Component, OnInit } from '@angular/core';
-import { Input } from '@angular/core';
+import { FavoritService } from 'src/app/favorit.service';
 @Component({
   selector: 'app-purchase',
   templateUrl: './purchase.component.html',
   styleUrls: ['./purchase.component.css']
 })
 export class PurchaseComponent implements OnInit {
-  @Input() favorites=[];
-  constructor() { }
-
+  
+  constructor(
+    private favoritService : FavoritService
+  ) { }
+  favorites=this.favoritService.favorites;
   ngOnInit(): void {
   }
 
