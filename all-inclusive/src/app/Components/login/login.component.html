@@ -1,36 +1,47 @@
 
+  <div class="container">
+  <div class="row">
+    <mdb-card style="background: mediumslateblue;">
+    <mdb-card-body>
+    <div class="card border-primary mb-3" style="max-width: 30rem;">
+      <div class="card-header"><h4>LOGIN</h4></div>
+      <div class="card-body text-primary">
+        <form [formGroup]="loginForm" (ngSubmit)="onSubmit(loginForm.value)">
 
-<form [formGroup]="loginForm" (ngSubmit)="onSubmit(loginForm.value)">
-
-    <div>
-        <h4>Enter your information to login</h4>
+          <div class="input-group mb-3">
+              
+                  <label class="input-group-text">User Type</label>
+                  <select class="form-select" formControlName="type">
+                    <option value="client">
+                      Client
+                    </option>
+                    <option value="company">
+                      Company
+                    </option>
+                  </select>
+          </div>  
+          <div class="mb-3">
+            <label for="email" class="form-label">
+              Email
+            </label>
+            <input id="email" type="email" class="form-control" formControlName="email">
+          </div>
         
-            <label>Type</label>
-            <select formControlName="type">
-              <option value="client">
-                Client
-              </option>
-              <option value="company">
-                Company
-              </option>
-            </select>
+          <div class="mb-3">
+            <label for="password" class="form-label">
+              Password
+            </label>
+            <input id="password" type="password" class="form-control" formControlName="password">
+          </div>
         
-
-      <label for="email">
-        Email
-      </label>
-      <input id="email" type="email" formControlName="email">
+          <button class="btn btn-primary" type="submit">Login</button>
+        
+        </form>
+        <span style="color: black;">If you don't have an account, please <a href="" (click)="changeView('signup')">sign up</a> </span>
+      </div>
     </div>
-  
-    <div>
-      <label for="password">
-        Password
-      </label>
-      <input id="password" type="password" formControlName="password">
+    </mdb-card-body>
+  </mdb-card>
     </div>
-  
-    <button class="button" type="submit">Login</button>
-  
-  </form>
-  <span>If you don't have an account, please <a href="" (click)="changeView('signup')">sign up</a> </span>
+  </div>
 

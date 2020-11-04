@@ -16,7 +16,7 @@ export class LoginComponent implements OnInit {
     this.loginForm = this.formBuilder.group({
       email: '',
       password: '',
-      type: ""
+      type: "client"
     });
   }
 
