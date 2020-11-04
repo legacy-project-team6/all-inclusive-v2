@@ -1,1 +1,36 @@
-<p>login works!</p>
+
+
+<form [formGroup]="loginForm" (ngSubmit)="onSubmit(loginForm.value)">
+
+    <div>
+        <h4>Enter your information to login</h4>
+        
+            <label>Type</label>
+            <select formControlName="type">
+              <option value="client">
+                Client
+              </option>
+              <option value="company">
+                Company
+              </option>
+            </select>
+        
+
+      <label for="email">
+        Email
+      </label>
+      <input id="email" type="email" formControlName="email">
+    </div>
+  
+    <div>
+      <label for="password">
+        Password
+      </label>
+      <input id="password" type="password" formControlName="password">
+    </div>
+  
+    <button class="button" type="submit">Login</button>
+  
+  </form>
+  <span>If you don't have an account, please <a href="" (click)="changeView('signup')">sign up</a> </span>
+
