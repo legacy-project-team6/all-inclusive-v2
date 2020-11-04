@@ -50,7 +50,7 @@ export class FavoritService {
   favorites=[];
 
   listCondition='home'
-
+//method for changing view
   changeList(view){
     this.listCondition=view;
   }
