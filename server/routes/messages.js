@@ -7,7 +7,7 @@ router.get("/", async (req, res) => {
   });
 });
 
-router.get("/:id", async (req, res) => {
+router.post("/:id", async (req, res) => {
   await Message.findById(req.params.id, (err, data) => {
     res.json(data);
   });
