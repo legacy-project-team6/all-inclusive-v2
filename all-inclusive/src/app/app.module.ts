@@ -8,6 +8,8 @@ import { MDBBootstrapModule } from 'angular-bootstrap-md';
 import { ReactiveFormsModule } from '@angular/forms';
 import { SideNavCompComponent } from './Components/side-nav-comp/side-nav-comp.component';
 import { SideNavComponent } from './Components/side-nav/side-nav.component';
+import { HttpClientModule } from '@angular/common/http';
+
 
 @NgModule({
   declarations: [
@@ -22,7 +24,8 @@ import { SideNavComponent } from './Components/side-nav/side-nav.component';
     ReactiveFormsModule,
     BrowserAnimationsModule,
     MDBBootstrapModule.forRoot(),
-    NgbModule
+    NgbModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
