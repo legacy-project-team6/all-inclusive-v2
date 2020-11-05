@@ -27,4 +27,6 @@ export class EventListComponent implements OnInit {
   participate(event){
     this.favoritService.participate(event);
   }
+
 }
+

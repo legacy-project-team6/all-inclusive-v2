@@ -31,7 +31,9 @@ export class FavoritService {
       place:"Nabeul",
       date:"25/12/2020",
       description:"welcome to our hiking",
+
       imgUrl:"https://cdn-az.allevents.in/events1/banners/4bb937881e2188b08717c5f5c5621ae9641ecc4677721ad4a9473d81a95d1634-rimg-w960-h502-gmir.jpg?v=1584682243",
+
       like:0,
       disLike:0
     },{
@@ -68,4 +70,6 @@ export class FavoritService {
   }
   constructor() { }
 
+
 }
+
