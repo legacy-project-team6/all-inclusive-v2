@@ -1,0 +1,13 @@
+.event {
+    margin-bottom: 80px;
+    border: 3px solid #77777769;
+    box-shadow:0 0 1em rgba(71, 71, 71, 0.9);
+  }
+  
+  
+  .event-description{
+    padding: 20px;
+    background-color: #c9c9c97a;
+    border-radius: 10px;
+    box-shadow: 0 0 1em rgba(71, 71, 71, 0.9);
+  }
