@@ -1,1 +1,17 @@
-<p>purchase works!</p>
+<div class="card mb-3" style="max-height: 600px;" *ngFor="let favorite of favorites index as favoriteId">
+    <div class="row no-gutters">
+      <div class="col-md-8">
+        <img src="{{favorite.imgUrl}}" class="card-img" style="max-height: 600px;" alt="{{favorite.name}}">
+      </div>
+      <div class="col-md-4" style="padding-left: 50px;">
+        <div class="card-body">
+          <h5 class="card-title">{{favorite.name}}</h5>
+          <p class="card-text">Type: {{favorite.type}}</p>
+          <p class="card-text">Place: {{favorite.place}}</p>
+          <p class="card-text">Date: {{favorite.date}}</p>
+          <p class="card-text">{{favorite.description}}</p>
+          
+        </div>
+      </div>
+    </div>
+</div>
