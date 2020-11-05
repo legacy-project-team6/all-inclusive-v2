@@ -10,8 +10,7 @@ import { ClientComponent } from './Components/client/client.component';
 import { CompanyComponent } from './Components/company/company.component';
 import { MessagesComponent } from './Components/messages/messages.component';
 import { PurchaseComponent } from './Components/purchase/purchase.component';
-import { HomeComponent } from './home/home.component';
-
+import { HomeComponent } from './Components/home/home.component';
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
   {path: 'slideshow', component: SlideShowComponent },
