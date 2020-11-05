@@ -1,12 +1,13 @@
 <div *ngIf="listCondition==='user'">
-  <div style="margin-bottom: 80px;" *ngFor="let event of events index as eventId">
+  <div class="event" *ngFor="let event of events index as eventId">
     <div class="card mb-3">
       <div class="row no-gutters">
         <div class="col-md-8">
           <img src="{{event.imgUrl}}" class="card-img" style="max-height: 500px;" alt="{{event.name}}">
         </div>
-        <div class="col-md-4" style="padding-left: 50px;">
-          <div class="card-body">
+        <div class="col-md-4">
+          <div class="card-body" >
+            <div class="event-description">
             <h5 class="card-title">{{event.name}}</h5>
             <p class="card-text">Type: {{event.type}}</p>
             <p class="card-text">Place: {{event.place}}</p>
@@ -14,6 +15,7 @@
             <p class="card-text">{{event.description}}</p>
             <p class="card-text">Price: {{event.price}} DT</p>
             <p class="card-text" *ngIf="event.seats>0" > Seats remain: {{event.seats}}</p>
+          </div>
             <div style="position: absolute;left:30px;bottom: 20px;" >
               <button type="button" class="btn btn-outline-primary" style="margin-left: 10px;margin-right: 10px;"
                 (click)="addLike(eventId)">
@@ -37,12 +39,12 @@
 <div *ngIf="listCondition==='home'">
   <div>
   <h1>Sport</h1>
-  <div class="row row-cols-1 row-cols-md-2">
-    <div class="col mb-4" style="max-width:33%;">
-      <div class="card">
-        <img src="https://lh3.googleusercontent.com/proxy/66y27zPyq2Umc2eVkOaATBWNGR21x5qHB6OXesZ8MdtwVqmPk4nlR7PWWJI7L_I6Lwo0Hpm-KEV_5BUamSvBiDZ6fA6Yd9Zjaoto5IKYy262yYIigQ-i-cI_0AqV2G2nm7o3m7qZS_kQ" class="card-img-top" style="max-height: 250px;" alt="...">
+  <div class="row row-cols-1 row-cols-md-2" >
+    <div class="col mb-4" style="max-width:33%;" *ngFor="let event of events index as eventId">
+      <div class="card" *ngIf="event.type == 'hiking' && eventId <=3">
+        <img src="{{event.imgUrl}}" class="card-img-top" style="max-height: 250px;" alt="{{event.name}}">
         <div class="card-body">
-          <h5 class="card-title">Marathon</h5>
+          <h5 class="card-title">{{event.name}}</h5>
           <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional
             content. This content is a little bit longer.</p>
         </div>
