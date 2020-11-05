@@ -14,7 +14,7 @@ router.get("/:id", async (req, res) => {
 });
 
 router.post("/add", async (req, res) => {
-  newMessage = new Message({
+  let newMessage = new Message({
     user: req.body.user,
     text: req.body.text,
   });

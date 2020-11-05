@@ -32,4 +32,26 @@ export class DataService {
   public addNewEvent(options){
     return this.httpClient.post(this._urlevents + '/add', options)
   }
+
+  // get message by id 
+
+  public getMessageById(options){
+    return this.httpClient.post(this._urlMessages + '/:id', options)
+  }
+
+  // delete message / message by id 
+
+  public deleteAllMessages(options){
+    return this.httpClient.delete(this._urlMessages, options)
+  }
+
+  public deleteMessageById(options){
+    return this.httpClient.delete(this._urlMessages + '/:id', options)
+  }
+
+  // update message by id
+
+  public updateMessageById(options){
+    return this.httpClient.put(this._urlMessages + '/:id', options)
+  }
 }
