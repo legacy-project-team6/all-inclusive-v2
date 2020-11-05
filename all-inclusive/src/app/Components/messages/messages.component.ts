@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { DataService } from '../../data.service';
 
 @Component({
   selector: 'app-messages',
@@ -6,10 +7,16 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./messages.component.css']
 })
 export class MessagesComponent implements OnInit {
-
-  constructor() { }
-
+   status: boolean = false;
+  constructor(private dataService: DataService) { }
+  toggleUp(){
+    this.status = !this.status
+  }
   ngOnInit(): void {
+    // getting all events on init
+    this.dataService.getAllMessages().subscribe((messages: any[] )=> {
+      console.log(messages)
+    })
   }
 
 }
