@@ -11,3 +11,9 @@
   border-radius: 10px;
   box-shadow: 0 0 1em rgba(71, 71, 71, 0.9);
 }
+
+.col{
+  box-shadow: 0 0 1em rgba(71, 71, 71, 0.9);
+  max-width:32%;
+   margin:auto ;
+}

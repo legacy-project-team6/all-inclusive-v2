@@ -6,8 +6,8 @@ import { Injectable } from '@angular/core';
 export class FavoritService {
   events=[
     {
-      name:"hiking event",
-      type:"hiking",
+      name:"Hiking event",
+      type:"Hiking",
       place:"Nabeul",
       date:"25/12/2020",
       description:"This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.",
@@ -18,8 +18,8 @@ export class FavoritService {
       seats:963
     },
     {
-      name:"hiking event",
-      type:"hiking",
+      name:"Hiking event",
+      type:"Hiking",
       place:"Nabeul",
       date:"25/12/2020",
       description:"This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.",
@@ -30,8 +30,8 @@ export class FavoritService {
       seats:522
     },
     {
-      name:"hiking event",
-      type:"hiking",
+      name:"Hiking event",
+      type:"Hiking",
       place:"Nabeul",
       date:"25/12/2020",
       description:"This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.",
@@ -43,8 +43,8 @@ export class FavoritService {
       price:5678,
       seats:87
     },{
-      name:"hiking event",
-      type:"hiking",
+      name:"Hiking event",
+      type:"Hiking",
       place:"Nabeul",
       date:"25/12/2020",
       description:"This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.",
@@ -59,7 +59,7 @@ export class FavoritService {
 
   favorites=[];
 
-  listCondition='user'
+  listCondition='home'
 //method for changing view
   changeList(view){
     this.listCondition=view;
