@@ -54,4 +54,33 @@ export class DataService {
   public updateMessageById(options){
     return this.httpClient.put(this._urlMessages + '/:id', options)
   }
+
+  // get event by id 
+
+  public getEventById(options){
+    return this.httpClient.post(this._urlMessages + '/:id', options)
+  }
+
+  // delete all events / event by id 
+
+  public deleteAllEvents(options){
+    return this.httpClient.delete(this._urlMessages, options)
+  }
+
+  public deleteEventById(options){
+    return this.httpClient.delete(this._urlMessages + '/:id', options)
+  }
+
+  // update event by id
+
+  public updateEventById(options){
+    return this.httpClient.put(this._urlMessages + '/:id', options)
+  }
+
+  // add many Events 
+
+  public addManyEvents(options){
+    return this.httpClient.post(this._urlMessages + '/addmany', options)
+  }
+
 }
