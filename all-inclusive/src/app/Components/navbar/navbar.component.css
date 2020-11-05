@@ -4,3 +4,10 @@
 .form-inline{
     margin-left: 300px
 }
+.btn{
+    border-color: white;
+    color: white    
+}
+.nav-link{
+    text-color: white
+}
