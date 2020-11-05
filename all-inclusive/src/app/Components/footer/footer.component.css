@@ -1,0 +1,51 @@
+.fa {
+    padding: 20px;
+    font-size: 24px;
+    width: 20px;
+    text-align: center;
+    text-decoration: none;
+    margin: 5px 2px;
+  }
+
+  .fa:hover {
+      opacity: 0.7;
+  }
+
+  .fa-facebook {
+    color: rgb(15, 15, 15);
+  }
+
+  .fa-twitter {
+    color: rgb(15, 15, 15);
+  }
+
+  .fa-instagram {
+    color: rgb(15, 15, 15);
+  }
+  .page-footer{
+    background-color: rgb(121, 79, 238);
+  }
+  .col-md-6{
+    color: white;
+  }
+
+  .col-md-3{
+    color: white;
+  }
+
+  .footer-copyright{
+    color: white;
+  }
+  .list{
+    color: white;
+  }
+
+  .git{
+    color: black;
+  }
+  .create{
+    color: black;
+  }
+  .contact{
+    color: black;
+  }

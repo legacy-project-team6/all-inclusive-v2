@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FavoritService } from 'src/app/favorit.service';
 
 @Component({
   selector: 'app-event-list',
@@ -6,10 +7,26 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./event-list.component.css']
 })
 export class EventListComponent implements OnInit {
-
-  constructor() { }
+  
+  events=this.favoritService.events;
+  listCondition=this.favoritService.listCondition;
+  constructor(
+    private favoritService: FavoritService
+  ) { }
 
   ngOnInit(): void {
   }
+  addLike(eventId){
+    this.favoritService.addLike(eventId);
+  }
+
+  addDisLike(eventId){
+    this.favoritService.addDisLike(eventId);
+  }
+
+  participate(event){
+    this.favoritService.participate(event);
+  }
 
 }
+
