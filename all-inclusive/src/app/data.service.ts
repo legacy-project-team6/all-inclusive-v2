@@ -9,6 +9,7 @@ export class DataService {
 
   private _urlMessages = "http://localhost:3000/api/message";
   private _urlevents = "http://localhost:3000/api/event";
+  private _urlUserEvent = "http://localhost:3000/api/userevent";
 
   constructor(private httpClient: HttpClient) { }
 
@@ -82,5 +83,42 @@ export class DataService {
   public addManyEvents(options){
     return this.httpClient.post(this._urlMessages + '/addmany', options)
   }
+
+  // USER EVENTS
+
+    // get user events
+
+  public getUserEvent(){
+    return this.httpClient.get(this._urlUserEvent + '/:id')
+  }
+
+  // get user events by id
+
+  public getUserEventById(options){
+    return this.httpClient.post(this._urlUserEvent + '/:id', options)
+  }
+
+  // delete all events / event by id 
+
+  public deleteAllUserEvents(options){
+    return this.httpClient.delete(this._urlUserEvent, options)
+  }
+
+  public deleteUserEventById(options){
+    return this.httpClient.delete(this._urlUserEvent + '/:id', options)
+  }
+
+  // update event by id
+
+  public updateUserEventById(options){
+    return this.httpClient.put(this._urlUserEvent + '/:id', options)
+  }
+
+  // add many Events 
+
+  public addUserEvent(options){
+    return this.httpClient.post(this._urlUserEvent + '/addmany', options)
+  }
+
 
 }
