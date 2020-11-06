@@ -1,13 +1,28 @@
 .login{
-    margin-left: 500px;
+     position: absolute;
+    left: 93%;
+    font-size: 25px;
+}
+.shoping{
+    position: absolute;
+    left: 87% ;
 }
 .form-inline{
-    margin-left: 300px;
+    position: absolute;
+    left: 38.4%;
 }
-.btn{
-    border-color: white;
-    color: white;    
+.btn-outline-success {
+    background-color: transparent!important;
+    border: 2px solid #dfe4e1!important;
+    color: #dfe4e1!important;
+    pointer-events: none;  
+       
 }
-.nav-link{
-    text-color: white;
+.home{
+    font-size: 25px;
 }
+
+.logo {
+    margin-top: -20px;
+    width: 100px;
+  }
