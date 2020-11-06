@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { FavoritService } from 'src/app/favorit.service';
-// import { FavoritService } from 'src/app/favorit.service';
 import { DataService } from '../../data.service';
 
 
@@ -11,15 +10,34 @@ import { DataService } from '../../data.service';
 })
 export class EventListComponent implements OnInit {
   
-  events=this.favoritService.events;
+  events;
+  sports=[];
+  culture=[];
+  trips=[];
   listCondition=this.favoritService.listCondition;
   constructor(private favoritService: FavoritService,private dataService: DataService) { }
 
   ngOnInit(): void {
     this.dataService.getAllEvents().subscribe((events: any[])=>{
-      console.log(events);
+      this.events=events;
+      for(let i=0;i<events.length;i++) {
+        if(events[i].type=='sport'){
+          this.sports.push(events[i]);
+        }
+        if(events[i].type=='trip'){
+          this.trips.push(events[i]);
+        }
+        if(events[i].type=='culture'){
+          this.culture.push(events[i]);
+        }
+      }
     })
   }
+
+  sportEvents(){
+    this.events.filter((event: any)=>{console.log(event)})
+  }
+
   addLike(eventId){
     this.events[eventId].like=this.events[eventId].like+1;
   }
