@@ -59,7 +59,7 @@ export class FavoritService {
 
   favorites=[];
 
-  listCondition='home'
+  listCondition='user'
 //method for changing view
   changeList(view){
     this.listCondition=view;
