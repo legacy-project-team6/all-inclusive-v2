@@ -7,7 +7,7 @@
               <mdb-card-body cascade="true" style="color: #880e4f;">
                 <h4 class="card-title">SIGNUP</h4>
         
-                <form [formGroup]="signupForm" >
+                <form [formGroup]="signupForm" (ngSubmit)="onSubmit(signupForm.value)">
 
                     <div class="input-group mb-3">
                             <label class="input-group-text">User Type</label>
@@ -81,7 +81,7 @@
                         </div>
                     </div>
 
-                  <button routerLink ='/client'  mdbBtn color="unique" class="waves-light" mdbWavesEffect (click) ='onSubmit(signupForm.value)' >Signup</button>
+                  <button mdbBtn color="unique" class="waves-light" mdbWavesEffect type="submit">Signup</button>
 
                 </form>
 
