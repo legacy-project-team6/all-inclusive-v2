@@ -8,13 +8,17 @@ import { MDBBootstrapModule } from 'angular-bootstrap-md';
 import { ReactiveFormsModule } from '@angular/forms';
 import { SideNavCompComponent } from './Components/side-nav-comp/side-nav-comp.component';
 import { SideNavComponent } from './Components/side-nav/side-nav.component';
+import { ScrollToTopComponent } from './Components/scroll-to-top/scroll-to-top.component';
+import { HttpClientModule } from '@angular/common/http';
+
 
 @NgModule({
   declarations: [
     AppComponent,
     routingComponents,
     SideNavCompComponent,
-    SideNavComponent
+    SideNavComponent,
+    ScrollToTopComponent
   ],
   imports: [
     BrowserModule,
@@ -22,7 +26,8 @@ import { SideNavComponent } from './Components/side-nav/side-nav.component';
     ReactiveFormsModule,
     BrowserAnimationsModule,
     MDBBootstrapModule.forRoot(),
-    NgbModule
+    NgbModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

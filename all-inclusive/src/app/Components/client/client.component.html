@@ -1,7 +1,7 @@
-<div>
-    <div [className]="'clientMain'">
-      <app-side-nav [className]="'clientInfo'" [user]="user"></app-side-nav>
-      <app-messages [className]="'msg'"></app-messages>
+<div class="container mt-5">
+    <div class="row justify-content-md-center">
+      <app-side-nav class="col-5" [user]="user"></app-side-nav>
+      <app-messages class="col-5"></app-messages>
     </div>
     <div>
         <app-event-list></app-event-list>
