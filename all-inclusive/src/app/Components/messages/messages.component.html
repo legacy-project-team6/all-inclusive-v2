@@ -1,16 +1,55 @@
-<div [className]="'allInclusive'">
-    <div [className]="'contact'">
-<h4 [className]="'title'">All Inclusive team </h4>
+<div>
+            <!-- <h4>All Inclusive team </h4>
     <div> 
             <p >Contact us via our green number 100200300</p>
     </div>
-    <div><img src="https://files.slack.com/files-pri/T0178VC0Y48-F01DEPKEKM1/ed79ddcc-fcab-44a3-b050-d54cdffa159c_200x200.png" width="100"/></div>
+    <mdb-icon fas icon="envelope"></mdb-icon>
     <button (click)="toggleUp()">Send a message?</button>
+    <div *ngIf="status">
+    <div class="md-form">
+        <mdb-icon fas icon="pencil-alt" class="prefix"></mdb-icon>
+        <textarea type="text" id="form8" class="md-textarea form-control" mdbInput></textarea>
+        <label for="form8">Icon Prefix</label>
+      </div>
+</div> -->
+<section class="form-gradient mb-5">
+    <mdb-card>
+      <div class="header peach-gradient">
+        <div class="row d-flex justify-content-center">
+          <h3 class="white-text mb-0 py-5 font-weight-bold">Contact Us</h3>
+        </div>
+      </div>
+
+      <mdb-card-body class="mx-4">
+        <div class="lead font-weight-bold green-text">
+          <mdb-icon fas icon="phone-square" class="prefix" size="lg"></mdb-icon>
+           Green number: 100200300
+        </div>
+  
+        <div class="md-form">
+          <mdb-icon fas icon="tag" class="prefix green-text"></mdb-icon>
+          <input type="text" id="form106" class="form-control" mdbInput>
+          <label for="form106">Subject</label>
+        </div>
+  
+        <div class="md-form">
+          <mdb-icon fas icon="pencil-alt" class="prefix green-text"></mdb-icon>
+          <textarea type="text" id="form107" class="md-textarea form-control" rows="5" mdbInput></textarea>
+          <label for="form107">Your message</label>
+        </div>
+  
+        <div class="row d-flex align-items-center mb-3 mt-4">
+          <div class="col-md-12">
+            <div class="text-center">
+              <button type="button" mdbBtn color="green" rounded="true" class="z-depth-1a">Send</button>
+            </div>
+          </div>
+        </div>
+
+      </mdb-card-body>
+    </mdb-card>
+  </section>
+   
 </div>
-<div [className]="'messageField'" *ngIf="status">
-    <div>
-<input type="text number" name="text" placeholder="Write a message"/>
-<button type="button">Send</button>
-   </div>
-</div>
-</div>
+
+
