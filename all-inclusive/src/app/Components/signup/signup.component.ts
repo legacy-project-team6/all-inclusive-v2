@@ -31,6 +31,7 @@ export class SignupComponent implements OnInit {
       console.log(companies)
     })
   }
+
   onSubmit(userInfo) {
     console.log(userInfo);
     const companyInfo ={
@@ -54,11 +55,11 @@ export class SignupComponent implements OnInit {
     }
     if(userInfo.type === "company") {
       this.userService.addNewCompany(companyInfo).subscribe((company) => {
-        console.log("accounst successfully created");
+        console.log("accounst successfully created", company);
       })
     }else{
       this.userService.addNewClient(clientInfo).subscribe((client) => {
-        console.log("accounst successfully created");
+        console.log("accounst successfully created", client);
       })
     }
   }

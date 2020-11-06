@@ -23,6 +23,8 @@ router.post("/add", async (req, res) => {
     imgUrl: req.body.imgUrl,
     like: req.body.like,
     disLike: req.body.disLike,
+    seats: req.body.seats,
+    price: req.body.price,
   });
   await newUserEvent.save(() => {
     res.json(newUserEvent);
