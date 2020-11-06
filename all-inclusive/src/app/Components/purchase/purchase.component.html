@@ -15,19 +15,19 @@
             <p class="card-text">Price: {{event.price}} DT</p>
             <p class="card-text"> Seats remain: {{event.seats}}</p>
             <input #box type="number" placeholder="Number of reservations" (keyup.enter)="update(box.value)"
-              (blur)="update(box.value)">
-            <div *ngIf="(registration==='reserve'&& specificEvent== eventId)">
-              <p class="card-text" *ngIf="registration==='confirm'">{{value}} Seat(s) has been reserved for you</p>
-              <p class="card-text" *ngIf="registration==='confirm'"> Total price of reservation(s): {{total}} </p>
+              (blur)="update(box.value)" *ngIf="registration==='reserve'">
+            <div *ngIf="(registration==='confirm'&& specificEvent== eventId)">
+              <p class="card-text" >{{value}} Seat(s) has been reserved for you</p>
+              <p class="card-text" > Total price of reservation(s): {{total}} </p>
             </div>
           </div>
           <div style="position: absolute;left:30px;bottom: 20px;">
             <button type="button" class="btn btn-outline-primary" style="margin-left: 10px;margin-right: 50px;"
-              *ngIf="registration==='reserve'" (click)="caculTotal(event.price,event.seats,eventId)">
+              *ngIf="registration==='reserve' || specificEvent!= eventId" (click)="caculTotal(event.price,event.seats,eventId)">
               Reservation
             </button>
             <button type="button" class="btn btn-outline-primary" style="margin-left: 10px;margin-right: 50px;"
-              *ngIf="registration==='confirm'" (click)="confirm(event)">
+              *ngIf="registration==='confirm'&&specificEvent== eventId" (click)="confirm(event)">
               Confirm
             </button>
             <button type="button" class="btn btn-outline-primary" (click)="reject(eventId)">
