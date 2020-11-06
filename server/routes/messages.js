@@ -7,14 +7,14 @@ router.get("/", async (req, res) => {
   });
 });
 
-router.get("/:id", async (req, res) => {
+router.post("/:id", async (req, res) => {
   await Message.findById(req.params.id, (err, data) => {
     res.json(data);
   });
 });
 
 router.post("/add", async (req, res) => {
-  newMessage = new Message({
+  let newMessage = new Message({
     user: req.body.user,
     text: req.body.text,
   });
