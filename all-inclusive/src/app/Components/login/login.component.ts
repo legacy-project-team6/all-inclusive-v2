@@ -43,7 +43,7 @@ export class LoginComponent implements OnInit {
       })
     }
     else if(userLoginInfo.type === 'company') {
-      const company = {email: userLoginInfo.email, password: userLoginInfo.password}
+      const company = {emailCompany: userLoginInfo.email, passwordCompany: userLoginInfo.password}
       this.userService.logInCompany(company).subscribe((results:any) => {
         this.userService.setCurrentUser(results);
         if(Object.keys(results).length) {

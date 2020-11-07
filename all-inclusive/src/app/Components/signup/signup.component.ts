@@ -55,8 +55,13 @@ export class SignupComponent implements OnInit {
       imgUrl: "http://client.jpg",
     }
     if(userInfo.type === "company") {
-      this.userService.addNewCompany(companyInfo).subscribe((company) => {
+      this.userService.addNewCompany(companyInfo).subscribe((company: any) => {
+        if(company.message) {
+          alert(company.message)
+          return;
+        }
         console.log("account successfully created", company);
+        this.router.navigate(['login'])
       })
     }else{
       this.userService.addNewClient(clientInfo).subscribe((client:any) => {
