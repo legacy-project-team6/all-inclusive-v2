@@ -10,6 +10,7 @@ import { SideNavCompComponent } from './Components/side-nav-comp/side-nav-comp.c
 import { SideNavComponent } from './Components/side-nav/side-nav.component';
 import { ScrollToTopComponent } from './Components/scroll-to-top/scroll-to-top.component';
 import { HttpClientModule } from '@angular/common/http';
+import { VoiceRecogComponent } from './Components/voice-recog/voice-recog.component';
 
 
 @NgModule({
@@ -18,7 +19,8 @@ import { HttpClientModule } from '@angular/common/http';
     routingComponents,
     SideNavCompComponent,
     SideNavComponent,
-    ScrollToTopComponent
+    ScrollToTopComponent,
+    VoiceRecogComponent
   ],
   imports: [
     BrowserModule,

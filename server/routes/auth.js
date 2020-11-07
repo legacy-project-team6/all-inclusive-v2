@@ -16,6 +16,7 @@ const schema = Joi.object({
   phoneNumber: Joi.number().required(),
   specialNeed: Joi.boolean().required(),
   imgUrl: Joi.string().required(),
+  address: Joi.string().required()
 });
 
 router.post("/add", async (req, res, next) => {
@@ -44,7 +45,7 @@ router.post("/add", async (req, res, next) => {
     const savedUser = await newUser.save();
     res.send(savedUser);
   } catch (error) {
-    if (error.isJoi === true) res.status(400).send(error.details[0].message);
+    if (error.isJoi === true) res.status(500).json(error.details[0].message);
     next(error);
   }
 });
@@ -61,17 +62,17 @@ router.post("/login", async (req, res, next) => {
   try {
     const { error } = await loginschema.validateAsync(req.body);
     const user = await User.findOne({ email: req.body.email });
-    if (!user) return res.status(400).send("Email or password is wrong");
+    if (!user) return res.status(500).json("Email or password is wrong");
 
     //check password
     const validPass = await bcrypt.compare(req.body.password, user.password);
-    if (!validPass) return res.status(400).send("password not valid");
+    if (!validPass) return res.status(500).json("password not valid");
 
     //create and assign a token
     const token = jwt.sign({ _id: user._id }, config.get("jwt").secret);
     res.header("auth-token", token).json(user);
   } catch (error) {
-    if (error.isJoi === true) res.status(400).send(error.details[0].message);
+    if (error.isJoi === true) res.status(500).json(error.details[0].message);
     next(error);
   }
 });
