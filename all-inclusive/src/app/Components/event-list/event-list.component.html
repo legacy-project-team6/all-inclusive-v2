@@ -18,14 +18,14 @@
           </div>
             <div style="position: absolute;left:30px;bottom: 20px;" >
               <button type="button" class="btn btn-outline-primary" style="margin-left: 10px;margin-right: 10px;"
-                (click)="addLike(eventId)">
+                (click)="addLike(event,eventId)">
                 Recommended: {{event.like}}
               </button>
-              <button type="button" class="btn btn-outline-primary" (click)="addDisLike(eventId)">
+              <button type="button" class="btn btn-outline-primary" (click)="addDisLike(event,eventId)">
                 Not Recommended: {{event.disLike}}
               </button>
               <button type="button" class="btn btn-outline-primary" style="margin-left: 10px;" *ngIf="event.seats>0"
-                (click)="participate(event)">
+                (click)="participate(event,eventId)">
                 Participate
               </button>
             </div>
@@ -36,18 +36,69 @@
   </div>
 </div>
 
+<div class="row justify-content-md-center">
+  <div class="col-md-6">
+    <!--Card-->
+    <mdb-card cascade="true">
+  
+      <!--Card image-->
+      <div class="view view-cascade overlay waves-light" mdbWavesEffect>
+        <mdb-card-img src="https://mdbootstrap.com/img/Photos/Others/men.jpg"></mdb-card-img>
+        <a>
+          <div class="mask rgba-white-slight"></div>
+        </a>
+      </div>
+      <!--/Card image-->
+  
+      <mdb-card-body cascade="true" class="text-center pb-0 px-0">
+        <!--Card content-->
+        <h4 class="card-title">
+          <strong>Billy Cullen</strong>
+        </h4>
+        <h5>Web developer</h5>
+  
+        <mdb-card-text>
+          Sed ut perspiciatis unde omnis iste natus sit voluptatem accusantium doloremque laudantium, totam rem
+          aperiam.
+        </mdb-card-text>
+  
+        <!--Facebook-->
+        <a type="button" mdbBtn floating="true" size="sm" color="fb" class="waves-light" mdbWavesEffect>
+          <mdb-icon fab icon="facebook"></mdb-icon>
+        </a>
+        <!--Twitter-->
+        <a type="button" mdbBtn floating="true" size="sm" color="tw" class="waves-light" mdbWavesEffect>
+          <mdb-icon fab icon="twitter"></mdb-icon>
+        </a>
+        <!--Google +-->
+        <a type="button" mdbBtn floating="true" size="sm" color="dribbble" class="waves-light" mdbWavesEffect>
+          <mdb-icon fab icon="dribbble"></mdb-icon>
+        </a>
+  
+        <!-- Card footer -->
+        <div class="card-footer text-muted text-center mt-4">
+          2 days ago
+        </div>
+  
+      </mdb-card-body>
+      <!--/.Card content-->
+  
+    </mdb-card>
+    <!--/.Card-->
+  </div>
+  </div>
+
 <div *ngIf="listCondition==='home'">
   <div style="padding:1cm">
   <h1 style="border-bottom: 3px solid black;margin-bottom:1cm">Sport</h1>
   <div class="row row-cols-1 row-cols-md-2" >
-    <div class="col mb-4" *ngFor="let event of events index as eventId">
-      <div class="card" *ngIf="event.type == 'Hiking' && eventId < 3">
+    <div class="col mb-4" *ngFor="let event of sports let i=index index as eventId">
+      <div class="card" *ngIf="event.type == 'sport'&& i < 3">
         <img src="{{event.imgUrl}}" class="card-img-top" style="max-height: 6cm;" alt="{{event.name}}">
         <div class="card-body">
           <div class="event-description">
           <h5 class="card-title">{{event.name}}</h5>
-          <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional
-            content. This content is a little bit longer.</p>
+          <p class="card-text">{{event.description}}</p>
           </div>
         </div>
       </div>
@@ -55,16 +106,15 @@
   </div> 
 </div>
 <div style="padding:1cm">
-  <h1 style="border-bottom: 3px solid black;margin-bottom:1cm">Sport</h1>
+  <h1 style="border-bottom: 3px solid black;margin-bottom:1cm">Trip</h1>
   <div class="row row-cols-1 row-cols-md-2" >
-    <div class="col mb-4" *ngFor="let event of events index as eventId">
-      <div class="card" *ngIf="event.type == 'Hiking' && eventId < 3">
+    <div class="col mb-4" *ngFor="let event of trips let i=index index as eventId">
+      <div class="card" *ngIf="event.type === 'trip'&& i < 3">
         <img src="{{event.imgUrl}}" class="card-img-top" style="max-height: 6cm;" alt="{{event.name}}">
         <div class="card-body">
           <div class="event-description">
           <h5 class="card-title">{{event.name}}</h5>
-          <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional
-            content. This content is a little bit longer.</p>
+          <p class="card-text">{{event.description}}</p>
           </div>
         </div>
       </div>
@@ -72,16 +122,15 @@
   </div> 
 </div>
 <div style="padding:1cm">
-  <h1 style="border-bottom: 3px solid black;margin-bottom:1cm">Sport</h1>
+  <h1 style="border-bottom: 3px solid black;margin-bottom:1cm">Culture</h1>
   <div class="row row-cols-1 row-cols-md-2" >
-    <div class="col mb-4" *ngFor="let event of events index as eventId">
-      <div class="card" *ngIf="event.type == 'Hiking' && eventId < 3">
+    <div class="col mb-4" *ngFor="let event of culture let i=index index as eventId">
+      <div class="card" *ngIf="event.type === 'culture'&& i < 3">
         <img src="{{event.imgUrl}}" class="card-img-top" style="max-height: 6cm;" alt="{{event.name}}">
         <div class="card-body">
           <div class="event-description">
           <h5 class="card-title">{{event.name}}</h5>
-          <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional
-            content. This content is a little bit longer.</p>
+          <p class="card-text">{{event.description}}</p>
           </div>
         </div>
       </div>

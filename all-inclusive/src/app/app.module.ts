@@ -13,6 +13,9 @@ import { ScrollToTopComponent } from './Components/scroll-to-top/scroll-to-top.c
 import { HttpClientModule } from '@angular/common/http';
 import {NavbarComponent} from './Components/navbar/navbar.component';
 import { SerchedEventComponent } from './components/serched-event/serched-event.component';
+import { FormsModule } from '@angular/forms';
+import { PurchaseComponent } from './Components/purchase/purchase.component';
+
 
 
 @NgModule({
@@ -23,6 +26,7 @@ import { SerchedEventComponent } from './components/serched-event/serched-event.
     SideNavComponent,
     ScrollToTopComponent,
     SerchedEventComponent
+    PurchaseComponent
   ],
   imports: [
     BrowserModule,
@@ -31,7 +35,8 @@ import { SerchedEventComponent } from './components/serched-event/serched-event.
     BrowserAnimationsModule,
     MDBBootstrapModule.forRoot(),
     NgbModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule,
   ],
   providers: [DatePipe, NavbarComponent],
   bootstrap: [AppComponent]

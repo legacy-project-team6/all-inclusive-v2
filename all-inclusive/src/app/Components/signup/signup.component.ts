@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
 import { UserService } from '../../user.service'
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-signup',
@@ -9,7 +10,7 @@ import { UserService } from '../../user.service'
 })
 export class SignupComponent implements OnInit {
   signupForm;
-  constructor(private formBuilder: FormBuilder, private userService: UserService) {
+  constructor(private router: Router, private formBuilder: FormBuilder, private userService: UserService) {
     this.signupForm = this.formBuilder.group({
       firstName: "",
       lastName: "",
@@ -54,14 +55,25 @@ export class SignupComponent implements OnInit {
       imgUrl: "http://client.jpg",
     }
     if(userInfo.type === "company") {
-      this.userService.addNewCompany(companyInfo).subscribe((company) => {
-        console.log("accounst successfully created", company);
+      this.userService.addNewCompany(companyInfo).subscribe((company: any) => {
+        if(company.message) {
+          alert(company.message)
+          return;
+        }
+        console.log("account successfully created", company);
+        this.router.navigate(['login'])
       })
     }else{
-      this.userService.addNewClient(clientInfo).subscribe((client) => {
-        console.log("accounst successfully created", client);
+      this.userService.addNewClient(clientInfo).subscribe((client:any) => {
+        if(client.message) {
+          alert(client.message)
+          return;
+        }
+        console.log("account successfully created", client);
+        this.router.navigate(['login'])
       })
     }
+    
   }
 
 }
