@@ -5,7 +5,7 @@ import { HttpClient } from '@angular/common/http';
   providedIn: 'root'
 })
 export class UserService {
-
+  currentUser: any;
   private _urlClient = "http://localhost:3000/api/user";
   private _urlCompany = "http://localhost:3000/api/company";
 
@@ -60,6 +60,12 @@ export class UserService {
 
   public deleteCompanyById(options){
     return this.httpClient.delete(this._urlCompany + '/:id', options)
+  }
+  public setCurrentUser(user: any) {
+    this.currentUser = user;
+  }
+  public getCurrentUser() {
+    return this.currentUser;
   }
 
 }
