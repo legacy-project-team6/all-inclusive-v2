@@ -9,7 +9,7 @@ app.use(cors())
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
 
-app.use(express.static(__dirname + '/../client/dist'));
+app.use(express.static(__dirname +'/../all-inclusive/dist/all-inclusive'));
 
 //database connection 
 const Url ='mongodb://localhost:27017/allinclusive'
