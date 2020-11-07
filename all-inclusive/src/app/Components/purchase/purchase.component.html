@@ -13,7 +13,8 @@
             <p class="card-text">Date: {{event.date}}</p>
             <p class="card-text">{{event.description}}</p>
             <p class="card-text">Price: {{event.price}} DT</p>
-            <p class="card-text"> Seats remain: {{event.seats}}</p>
+            <p class="card-text" *ngIf="registration==='reserve'" > Seats remain: {{event.seats}}</p>
+            <p class="card-text" *ngIf="registration==='confirm'&&specificEvent== eventId"> Seats remain: {{[event.seats]-[value]}}</p>
             <input #box type="number" placeholder="Number of reservations" (keyup.enter)="update(box.value)"
               (blur)="update(box.value)" *ngIf="registration==='reserve'">
             <div *ngIf="(registration==='confirm'&& specificEvent== eventId)">
@@ -22,15 +23,15 @@
             </div>
           </div>
           <div style="position: absolute;left:30px;bottom: 20px;">
-            <button type="button" class="btn btn-outline-primary" style="margin-left: 10px;margin-right: 50px;"
+            <button id= [eventId]  type="button" class="btn btn-outline-primary" style="margin-left: 10px;margin-right: 50px;"
               *ngIf="registration==='reserve' || specificEvent!= eventId" (click)="caculTotal(event.price,event.seats,eventId)">
               Reservation
             </button>
-            <button type="button" class="btn btn-outline-primary" style="margin-left: 10px;margin-right: 50px;"
+            <button id= [eventId] type="button" class="btn btn-outline-primary" style="margin-left: 10px;margin-right: 50px;"
               *ngIf="registration==='confirm'&&specificEvent== eventId" (click)="confirm(event)">
               Confirm
             </button>
-            <button type="button" class="btn btn-outline-primary" (click)="reject(eventId)">
+            <button id= [eventId] type="button" class="btn btn-outline-primary" (click)="reject(eventId)">
               Cancel
             </button>
           </div>
