@@ -3,6 +3,7 @@ const mongoose = require('mongoose');
 
 //database connection 
 const Url ='mongodb://localhost:27017/allinclusive'
+
 const db = mongoose.connect(Url,{
   useNewUrlParser:true,
   useUnifiedTopology:true,

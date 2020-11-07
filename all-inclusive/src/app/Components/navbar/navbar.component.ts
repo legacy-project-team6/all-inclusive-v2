@@ -8,7 +8,7 @@ import {DataService} from '../../data.service';
 })
 export class NavbarComponent implements OnInit {
   searchItems ;
-  searchWords: string;
+  searchWords: string = "";
   constructor(private dataService: DataService) { }
 
   ngOnInit(): void {
@@ -17,9 +17,11 @@ export class NavbarComponent implements OnInit {
   onSearch(e){
     this.searchWords= e.target.value;
     console.log(this.searchWords);
-    this.dataService.searchByWord(this.searchWords).subscribe( (data) => {
+    this.dataService.searchByWord({searchWords:this.searchWords}).subscribe( (data) => {
       this.searchItems = data;
       console.log(data);
     });
+    
   }
+
 }

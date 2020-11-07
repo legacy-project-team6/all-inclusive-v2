@@ -10,6 +10,24 @@ router.get("/", async (req, res) => {
     res.status(400).send(err);
   }
 });
+//post request for searched data;
+
+router.post("/search", async (req, res) => {
+  const keyword = req.body.searchWords.split("");
+  console.log(keyword);
+  try {
+    await Event.find({}, (err, data) => {
+      let filtred  = [];
+      data.forEach(event => {
+        return filtred.push(event.type.split(""))
+      });
+      console.log(filtred)
+      console.log(data)
+    });
+  } catch (err) {
+    res.status(500).send(err);
+  }
+});
 
 router.post("/add", async (req, res) => {
   console.log(req.body);
@@ -61,5 +79,7 @@ router.put("/:id", async (req, res) => {
   await Event.findByIdAndUpdate(req.params.id, req.body);
   res.json({ message: "specific data updated" });
 });
+
+
 
 module.exports = router;

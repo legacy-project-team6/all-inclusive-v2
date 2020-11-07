@@ -208,7 +208,8 @@ const companys= [
 const insertSampleData = function() {
     Events.create(events)
       .then(() => Company.create(companys)
-      .then(() => db.disconnect()) );
+      .then(() => db.disconnect()) 
+      );
   };
   
   insertSampleData();

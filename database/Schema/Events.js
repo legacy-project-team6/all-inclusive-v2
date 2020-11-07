@@ -1,4 +1,7 @@
 const mongoose = require("mongoose");
+const db = require ("../index.js");
+mongoose.Promise = global.Promise;
+
 const eventSchema = new mongoose.Schema(
   {
     name: { type: String, required: true },
