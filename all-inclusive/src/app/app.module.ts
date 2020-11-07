@@ -10,6 +10,8 @@ import { SideNavCompComponent } from './Components/side-nav-comp/side-nav-comp.c
 import { SideNavComponent } from './Components/side-nav/side-nav.component';
 import { ScrollToTopComponent } from './Components/scroll-to-top/scroll-to-top.component';
 import { HttpClientModule } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
+import { PurchaseComponent } from './Components/purchase/purchase.component';
 
 
 @NgModule({
@@ -18,7 +20,8 @@ import { HttpClientModule } from '@angular/common/http';
     routingComponents,
     SideNavCompComponent,
     SideNavComponent,
-    ScrollToTopComponent
+    ScrollToTopComponent,
+    PurchaseComponent
   ],
   imports: [
     BrowserModule,
@@ -27,7 +30,8 @@ import { HttpClientModule } from '@angular/common/http';
     BrowserAnimationsModule,
     MDBBootstrapModule.forRoot(),
     NgbModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
