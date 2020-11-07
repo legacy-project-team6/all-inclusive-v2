@@ -23,7 +23,7 @@ router.post("/add", async (req, res, next) => {
   //check if user already exist
   console.log(req.body);
   const emailExist = await User.findOne({ email: req.body.email });
-  if (emailExist) return res.status(400).send("Email already exists");
+  if (emailExist) return res.json({message:"Email already exists"});
 
   try {
     //hash password
@@ -62,15 +62,23 @@ router.post("/login", async (req, res, next) => {
   try {
     const { error } = await loginschema.validateAsync(req.body);
     const user = await User.findOne({ email: req.body.email });
+<<<<<<< HEAD
     if (!user) return res.status(500).json("Email or password is wrong");
 
     //check password
     const validPass = await bcrypt.compare(req.body.password, user.password);
     if (!validPass) return res.status(500).json("password not valid");
+=======
+    if (!user) return res.json({});
+
+    //check password
+    const validPass = await bcrypt.compare(req.body.password, user.password);
+    if (!validPass) return res.json({});
+>>>>>>> 736e80ed0d86db6874f6f36ebfca7ee8c2ed63d8
 
     //create and assign a token
     const token = jwt.sign({ _id: user._id }, config.get("jwt").secret);
-    res.header("auth-token", token).json(user);
+    res.status(200).header("auth-token", token).json(user);
   } catch (error) {
     if (error.isJoi === true) res.status(500).json(error.details[0].message);
     next(error);
