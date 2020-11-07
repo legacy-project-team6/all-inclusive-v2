@@ -112,5 +112,105 @@ const  events=[
       "seats":250
     }
 ];
+const companys= [
+    {
+        "type": "company" ,
+        "name": "Le 4ème Art" ,
+        "emailCompany":  "le4emeART@gmail.com",
+        "passwordCompany": "4emeArt",
+        "phoneNumberCompany": "+21671113000",
+        "adress": "Le 4ème Art - Avenue de Paris tunis",
+        "imgUrlCompany":
+
+    },
+    {
+        "type": "company" ,
+        "name": "Sicca Jazz festival" ,
+        "emailCompany":  "SiccaJazzfestival@gmail.com",
+        "passwordCompany": "SiccaJazz",
+        "phoneNumberCompany": "+21697979797",
+        "adress": "el kasba kef",
+        "imgUrlCompany":
+
+    },
+    {
+        "type": "company" ,
+        "name": "municipal theater" ,
+        "emailCompany":  "municipaltheater@gmail.com",
+        "passwordCompany": "municipaltheater",
+        "phoneNumberCompany": "+21650456123",
+        "adress": "Avenue habib bourgiba tunis",
+        "imgUrlCompany": " "
+
+    },
+    {
+        "type": "company" ,
+        "name": "Bouhertma Ecological Center" ,
+        "emailCompany":  "BouhertmaEcologicalCenter@gmail.com",
+        "passwordCompany": "EcologicalCenter",
+        "phoneNumberCompany": "+21622000555",
+        "adress": "Bouhertma frnana",
+        "imgUrlCompany": " "
+
+    },
+    {
+        "type": "company" ,
+        "name": "EL FALLEGA" ,
+        "emailCompany":  "ELFALLEGA@gmail.com",
+        "passwordCompany": "ELFALLEGA",
+        "phoneNumberCompany": "+216203456789",
+        "adress": "ariana center tunis",
+        "imgUrlCompany": " "
+
+    },
+    {
+        "type": "company" ,
+        "name": "Al_Rahala" ,
+        "emailCompany":  "Al_Rahala@gmail.com",
+        "passwordCompany": "Al_Rahala",
+        "phoneNumberCompany": "+216463456789",
+        "adress": "el hawaria nabeul",
+        "imgUrlCompany": " "
+
+    },
+    {
+        "type": "company" ,
+        "name": "Nana Trophy" ,
+        "emailCompany":  "NanaTrophy@gmail.com",
+        "passwordCompany": "NanaTrophy",
+        "phoneNumberCompany": "+216333456789",
+        "adress": "manzah 6th tunis",
+        "imgUrlCompany": " "
+
+    },
+    {
+        "type": "company" ,
+        "name": "ASA-Ksar-Hellal" ,
+        "emailCompany":  "ASA-Ksar-Hellal@gmail.com",
+        "passwordCompany": "ASA-Ksar-Hellal",
+        "phoneNumberCompany": "+216553456789",
+        "adress": "Le 4ème Art - Avenue de Paris tunis",
+        "imgUrlCompany": " "
+
+    },
+    {
+        "type": "company" ,
+        "name": "sport events" ,
+        "emailCompany":  "sportevents@gmail.com",
+        "passwordCompany": "sportevents",
+        "phoneNumberCompany": "+216223456789",
+        "adress": "rue de marseille tunis",
+        "imgUrlCompany": " " 
+
+    }
+];
+
+const insertSampleData = function() {
+    Events.create(events)
+      .then(() => Company.create(companys)
+      .then(() => db.disconnect()) );
+  };
+  
+  insertSampleData();
 
 
