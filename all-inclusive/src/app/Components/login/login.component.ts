@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
+import { UserService } from 'src/app/user.service';
 
 @Component({
   selector: 'app-login',
@@ -8,11 +9,11 @@ import { FormBuilder } from '@angular/forms';
 })
 export class LoginComponent implements OnInit {
   loginForm;
-  user: {};
+  user: any;
   company: {};
   view: "";
  
-  constructor(private formBuilder: FormBuilder) {
+  constructor(private formBuilder: FormBuilder, private userService: UserService) {
     this.loginForm = this.formBuilder.group({
       email: '',
       password: '',
@@ -23,7 +24,20 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {
   }
   onSubmit(userLoginInfo) {
-    console.log(userLoginInfo);
+    // console.log(userLoginInfo);
+    if(userLoginInfo.type === 'client') {
+      const user = {email: userLoginInfo.email, password: userLoginInfo.password}
+      this.userService.logInClient(user).subscribe((results) => {
+        // console.log(results) 
+        if(Object.keys(results).length) {
+          console.log('success')
+        } else {
+          console.log('failed')
+        }
+        
+        
+      })
+    }
   }
   changeView(option) {
     this.view = option;
