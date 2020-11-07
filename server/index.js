@@ -38,5 +38,5 @@ app.use('/api/message',require('./routes/messages.js'))
 
 
 app.listen(PORT, () => {
-  console.log(`listening on port ${PORT}`);
+  console.log(`listening on port http://localhost:${PORT}`);
 });

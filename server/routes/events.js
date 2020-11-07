@@ -42,7 +42,7 @@ router.delete("/", async (req, res) => {
   res.json({ message: "all data deleted" });
 });
 
-router.post("/:id", async (req, res) => {
+router.get("/:id", async (req, res) => {
   await Event.findById(req.params.id, (err, data) => {
     res.json(data);
   });
@@ -58,8 +58,9 @@ router.delete("/:id", async (req, res) => {
 });
 
 router.put("/:id", async (req, res) => {
-  await Event.findByIdAndUpdate(req.params.id, req.body);
-  res.json({ message: "specific data updated" });
+  await Event.findByIdAndUpdate(req.params.id, req.body,{returnOriginal:false},(err,data)=>{
+    res.json(data)
+  })
 });
 
 module.exports = router;
