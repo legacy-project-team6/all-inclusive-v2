@@ -48,8 +48,13 @@ export class EventListComponent implements OnInit {
   }
 
   // add event to the favorit event
-  participate(event){
+  participate(event,eventId){
     this.favoritService.favorites.push(event)
+    for (let i = 0; i < this.events.length; i++) {
+      if (i === eventId) {
+        this.events.splice(i, 1)
+      }
+    }
   }
 
 }

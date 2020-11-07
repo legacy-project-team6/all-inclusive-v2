@@ -25,7 +25,7 @@
                 Not Recommended: {{event.disLike}}
               </button>
               <button type="button" class="btn btn-outline-primary" style="margin-left: 10px;" *ngIf="event.seats>0"
-                (click)="participate(event)">
+                (click)="participate(event,eventId)">
                 Participate
               </button>
             </div>
