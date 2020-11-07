@@ -45,5 +45,6 @@ export const routingComponents = [
   CompanyComponent,
   MessagesComponent,
   PurchaseComponent,
-  HomeComponent
+  HomeComponent,
+  SerchedEventComponent
   ]

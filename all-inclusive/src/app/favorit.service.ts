@@ -6,6 +6,7 @@ import { Injectable } from '@angular/core';
 export class FavoritService {
 
   favorites=[];
+  searchedItems: any;
 
   listCondition='user'
 //method for changing view
@@ -14,7 +15,12 @@ export class FavoritService {
   }
 
   constructor() { }
+  getSearchedItems(){
+    return this.searchedItems
+  }
 
-
+    setSearchedItems(filtredItems){
+      this.searchedItems=filtredItems
+    }
 }
 

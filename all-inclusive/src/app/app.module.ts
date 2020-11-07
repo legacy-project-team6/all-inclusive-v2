@@ -25,7 +25,7 @@ import { PurchaseComponent } from './Components/purchase/purchase.component';
     SideNavCompComponent,
     SideNavComponent,
     ScrollToTopComponent,
-    SerchedEventComponent
+    SerchedEventComponent,
     PurchaseComponent
   ],
   imports: [

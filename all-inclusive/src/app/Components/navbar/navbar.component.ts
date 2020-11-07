@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {DataService} from '../../data.service';
+import {FavoritService} from '../../favorit.service'
 
 @Component({
   selector: 'app-navbar',
@@ -7,9 +8,8 @@ import {DataService} from '../../data.service';
   styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent implements OnInit {
-  searchItems ;
   searchWords: string = "";
-  constructor(private dataService: DataService) { }
+  constructor(private dataService: DataService, private favoritservice: FavoritService) { }
 
   ngOnInit(): void {
   }
@@ -17,9 +17,10 @@ export class NavbarComponent implements OnInit {
   onSearch(e){
     this.searchWords= e.target.value;
     this.dataService.searchByWord({searchWords:this.searchWords}).subscribe( (data) => {
-      this.searchItems = data;
+      this.favoritservice.setSearchedItems(data);
     });
     
   }
 
+  
 }
