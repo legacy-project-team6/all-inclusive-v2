@@ -58,8 +58,8 @@ export class DataService {
 
   // get event by id 
 
-  public getEventById(options){
-    return this.httpClient.post(this._urlMessages + '/:id', options)
+  public getEventById(id){
+    return this.httpClient.get(this._urlevents + '/'+id)
   }
 
   // delete all events / event by id 
@@ -74,8 +74,8 @@ export class DataService {
 
   // update event by id
 
-  public updateEventById(options){
-    return this.httpClient.put(this._urlMessages + '/:id', options)
+  public updateEventById(options,id){
+    return this.httpClient.put(this._urlevents + '/'+id, options)
   }
 
   // add many Events 
