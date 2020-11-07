@@ -9,8 +9,7 @@ import { UserService } from 'src/app/user.service';
 })
 export class LoginComponent implements OnInit {
   loginForm;
-  user: any;
-  company: {};
+  currentUser: any;
   view: "";
  
   constructor(private formBuilder: FormBuilder, private userService: UserService) {
@@ -28,11 +27,12 @@ export class LoginComponent implements OnInit {
     if(userLoginInfo.type === 'client') {
       const user = {email: userLoginInfo.email, password: userLoginInfo.password}
       this.userService.logInClient(user).subscribe((results) => {
-        // console.log(results) 
+        this.currentUser = results;
+        // console.log(this.currentUser)
         if(Object.keys(results).length) {
           console.log('success')
         } else {
-          console.log('failed')
+          alert("Please verify your email and/or password, and if you don't have an account please sign up!")
         }
         
         
