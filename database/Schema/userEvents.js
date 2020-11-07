@@ -8,7 +8,9 @@ const userEventsSchema = new mongoose.Schema(
         date: {type:Date , required:true},
         imgUrl :{type:String , required:true},
         like :{type:Number , required:true},
-        disLike :{type:Number , required:true}
+        disLike :{type:Number , required:true},
+        seats: { type: Number, required: true },
+        price: { type: Number, required: true }
 
     },
     {

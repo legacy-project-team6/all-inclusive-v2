@@ -7,26 +7,36 @@ router.get("/", async (req, res) => {
   });
 });
 
-router.get("/:id", async (req, res) => {
-  await Message.findById(req.params.id, (err, data) => {
-    res.json(data);
-  });
-});
-
-router.post("/add", async (req, res) => {
-  newMessage = new Message({
+router.post("/add",  (req, res) => {
+  var newMessage = new Message({
     user: req.body.user,
     text: req.body.text,
   });
-  await newMessage.save(() => {
-    res.json(newMessage);
+   newMessage.save((err,data)=>{
+    if(err){
+      console.log(err)
+    }else{
+      res.json(newMessage);
+    }
+  
+
   });
 });
+
 
 router.delete("/", async (req, res) => {
   await Message.deleteMany(req.params.id, req.body);
   res.json({ message: "all data deleted" });
 });
+
+router.post("/:id", async (req, res) => {
+  await Message.findById(req.params.id, (err, data) => {
+    res.json(data);
+  });
+});
+
+
+
 
 router.delete("/:id", async (req, res) => {
   await Message.findByIdAndDelete(req.params.id, req.body);

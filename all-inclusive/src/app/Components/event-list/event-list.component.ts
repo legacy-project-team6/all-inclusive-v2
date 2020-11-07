@@ -4,6 +4,7 @@ import { FavoritService } from 'src/app/favorit.service';
 import { DataService } from '../../data.service';
 
 
+
 @Component({
   selector: 'app-event-list',
   templateUrl: './event-list.component.html',
@@ -21,16 +22,17 @@ export class EventListComponent implements OnInit {
     })
   }
   addLike(eventId){
-    this.favoritService.addLike(eventId);
+    this.events[eventId].like=this.events[eventId].like+1;
   }
 
   addDisLike(eventId){
-    this.favoritService.addDisLike(eventId);
+    this.events[eventId].disLike=this.events[eventId].disLike+1;
   }
 
   participate(event){
-    this.favoritService.participate(event);
+    this.favoritService.favorites.push(event)
   }
+
 
 }
 
