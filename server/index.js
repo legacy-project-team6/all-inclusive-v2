@@ -32,6 +32,7 @@ app.use('/api/company', require('./routes/company.js'));
 app.use('/api/seller',require('./routes/company.js'))
 app.use('/api/userevent',require('./routes/userevent.js'))
 app.use('/api/message',require('./routes/messages.js'))
+app.use('/api/request',require('./routes/requests.js'))
 
 
 

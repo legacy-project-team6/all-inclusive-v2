@@ -1,5 +1,7 @@
 import { ConvertActionBindingResult } from '@angular/compiler/src/compiler_util/expression_converter';
 import { Component, OnInit } from '@angular/core';
+import { DataService } from '../../data.service'
+
 
 declare const responsiveVoice: any;
 declare const webkitSpeechRecognition: any;
@@ -10,12 +12,13 @@ declare const webkitSpeechRecognition: any;
   styleUrls: ['./navbar.component.css'],
 })
 export class NavbarComponent implements OnInit {
-  choice: string;
+  choice: string = '';
+  pick : string ;
   public recognition = new webkitSpeechRecognition();
   words: string = '';
   welcome: string = 'welcome! if you need my help say, yes. else say, no';
   phone: number;
-  constructor() {}
+  constructor(private dataService: DataService) {}
   startAsking() {
     console.log('Starting The Question');
   }
@@ -44,6 +47,12 @@ export class NavbarComponent implements OnInit {
                   responsiveVoice.speak(
                     'we got your request! thank you for visiting us!'
                   );
+                      // creating a request and saving it in Database 
+                      console.log(this.choice.split(';').pop())
+                      console.log(this.choice.substring(0,this.choice.indexOf(';')))
+                      this.dataService.addDisableRequest({type: this.choice.substring(0,this.choice.indexOf(';')),phone: this.phone}).subscribe(response => {
+                        console.log(response)
+                      })
                 } else {
                   responsiveVoice.speak(
                     'could you repeatfrom the begenning please?'
@@ -54,7 +63,7 @@ export class NavbarComponent implements OnInit {
           }
         );
       }
-    }, 20000);
+    }, 25000);
   }
 
   voiceGuide(welcome = this.welcome) {
@@ -80,8 +89,7 @@ export class NavbarComponent implements OnInit {
           } else if (transcript.toLowerCase() === 'no') {
             return;
           } else if (transcript.toLowerCase().length !== 0) {
-            this.choice = transcript;
-            console.log(this.choice, 'my choice');
+            this.choice += transcript + ';'
           } else {
             return this.voiceGuide('thank you for vising us!');
           }

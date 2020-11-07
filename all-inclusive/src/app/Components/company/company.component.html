@@ -1,6 +1,13 @@
 <div [className]="'companyMain'">
     <div [className]="'CompanyInfo'">
       <app-side-nav-comp  [company]="company"></app-side-nav-comp>
+      <div *ngFor="let request from requests">
+              <h1>Needy Persons Requests</h1>
+          <div>
+            <h3> Type of event: {{request.type}} </h3>
+            <h3> Phone number: {{request.phone}}</h3>
+          </div>
+      </div>
       <app-messages [className]="'msg'"></app-messages>
       </div>
     <div [className]="'list'">
