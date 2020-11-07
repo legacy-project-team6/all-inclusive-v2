@@ -13,16 +13,18 @@ router.get("/", async (req, res) => {
 //post request for searched data;
 
 router.post("/search", async (req, res) => {
-  const keyword = req.body.searchWords.split("");
+  const keyword = req.body.searchWords;
+  let filtred  = [];
   console.log(keyword);
   try {
-    await Event.find({}, (err, data) => {
-      let filtred  = [];
+    await Event.find({}, (err, data) => {      
       data.forEach(event => {
-        return filtred.push(event.type.split(""))
+        if(event.type.substring(0,keyword.length) === keyword) {
+        return filtred.push(event)
+        }
       });
-      console.log(filtred)
-      console.log(data)
+      res.json(filtred)
+      
     });
   } catch (err) {
     res.status(500).send(err);
