@@ -12,6 +12,7 @@ import { SideNavComponent } from './Components/side-nav/side-nav.component';
 import { ScrollToTopComponent } from './Components/scroll-to-top/scroll-to-top.component';
 import { HttpClientModule } from '@angular/common/http';
 import {NavbarComponent} from './Components/navbar/navbar.component';
+import { SerchedEventComponent } from './components/serched-event/serched-event.component';
 
 
 @NgModule({
@@ -20,7 +21,8 @@ import {NavbarComponent} from './Components/navbar/navbar.component';
     routingComponents,
     SideNavCompComponent,
     SideNavComponent,
-    ScrollToTopComponent
+    ScrollToTopComponent,
+    SerchedEventComponent
   ],
   imports: [
     BrowserModule,

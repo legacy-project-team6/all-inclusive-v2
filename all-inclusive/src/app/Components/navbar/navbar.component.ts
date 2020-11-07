@@ -16,10 +16,8 @@ export class NavbarComponent implements OnInit {
 
   onSearch(e){
     this.searchWords= e.target.value;
-    console.log(this.searchWords);
     this.dataService.searchByWord({searchWords:this.searchWords}).subscribe( (data) => {
       this.searchItems = data;
-      console.log(data);
     });
     
   }
