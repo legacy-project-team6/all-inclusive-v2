@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { DataService } from '../../data.service';
 
 @Component({
   selector: 'app-side-nav-comp',
@@ -16,7 +17,7 @@ export class SideNavCompComponent implements OnInit {
   // check on image type
   eventImage: string;
 
-  constructor() { }
+  constructor(private dataService: DataService) { }
 
   ngOnInit(): void {
   }
@@ -44,6 +45,9 @@ export class SideNavCompComponent implements OnInit {
   // server Data request
   addEvent(e){
     e.preventDefault()
+    this.dataService.getAllEvents().subscribe(data => {
+      console.log(data)
+    })
   }
 
 }

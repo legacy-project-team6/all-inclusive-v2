@@ -9,9 +9,12 @@ const eventSchema = new mongoose.Schema(
     imgUrl: { type: String, required: true },
     like: { type: Number, required: true },
     disLike: { type: Number, required: true },
+    seats: { type: Number, required: true },
+    price: { type: Number, required: true }
   },
   {
     timestamps: true,
   }
 );
-module.exports = mongoose.model("Event", eventSchema);
+const Events = mongoose.model("Event", eventSchema);
+module.exports = Events;

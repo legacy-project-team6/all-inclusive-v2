@@ -11,15 +11,9 @@ router.get("/", async (req, res) => {
   }
 });
 
-router.get("/:id", async (req, res) => {
-  await Event.findById(req.params.id, (err, data) => {
-    res.json(data);
-  });
-});
-
 router.post("/add", async (req, res) => {
   console.log(req.body);
-  newEvent = new Event({
+ let newEvent = new Event({
     name: req.body.name,
     type: req.body.type,
     place: req.body.place,
@@ -28,11 +22,15 @@ router.post("/add", async (req, res) => {
     imgUrl: req.body.imgUrl,
     like: req.body.like,
     disLike: req.body.disLike,
+    seats: req.body.seats,
+    price: req.body.price
   });
   await newEvent.save(() => {
     res.json(newEvent);
   });
 });
+
+
 
 router.post("/addmany", async (req, res) => {
   await Event.insertMany(req.body);
@@ -43,6 +41,16 @@ router.delete("/", async (req, res) => {
   await Event.deleteMany(req.params.id, req.body);
   res.json({ message: "all data deleted" });
 });
+
+router.post("/:id", async (req, res) => {
+  await Event.findById(req.params.id, (err, data) => {
+    res.json(data);
+  });
+});
+
+
+
+
 
 router.delete("/:id", async (req, res) => {
   await Event.findByIdAndDelete(req.params.id, req.body);
