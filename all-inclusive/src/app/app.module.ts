@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import {DatePipe} from '@angular/common';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppRoutingModule, routingComponents } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -10,6 +11,7 @@ import { SideNavCompComponent } from './Components/side-nav-comp/side-nav-comp.c
 import { SideNavComponent } from './Components/side-nav/side-nav.component';
 import { ScrollToTopComponent } from './Components/scroll-to-top/scroll-to-top.component';
 import { HttpClientModule } from '@angular/common/http';
+import {NavbarComponent} from './Components/navbar/navbar.component';
 
 
 @NgModule({
@@ -29,7 +31,7 @@ import { HttpClientModule } from '@angular/common/http';
     NgbModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [DatePipe, NavbarComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

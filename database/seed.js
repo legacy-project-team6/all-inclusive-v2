@@ -1,6 +1,6 @@
 const db = require('./index.js');
-const Events = require('./events.js');
-const Company = require('./companies.js');
+const Events = require('./Schema/Events.js');
+const Company = require('./Schema/Companies.js');
 
 const  events=[
     {
@@ -120,7 +120,7 @@ const companys= [
         "passwordCompany": "4emeArt",
         "phoneNumberCompany": "+21671113000",
         "adress": "Le 4ème Art - Avenue de Paris tunis",
-        "imgUrlCompany":
+        "imgUrlCompany":" "
 
     },
     {
@@ -130,7 +130,7 @@ const companys= [
         "passwordCompany": "SiccaJazz",
         "phoneNumberCompany": "+21697979797",
         "adress": "el kasba kef",
-        "imgUrlCompany":
+        "imgUrlCompany":" "
 
     },
     {
@@ -200,7 +200,7 @@ const companys= [
         "passwordCompany": "sportevents",
         "phoneNumberCompany": "+216223456789",
         "adress": "rue de marseille tunis",
-        "imgUrlCompany": " " 
+        "imgUrlCompany": "https://www.pinclipart.com/picdir/big/355-3553881_stockvader-predicted-adig-user-profile-icon-png-clipart.png" 
 
     }
 ];
