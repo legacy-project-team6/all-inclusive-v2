@@ -18,10 +18,10 @@
           </div>
             <div style="position: absolute;left:30px;bottom: 20px;" >
               <button type="button" class="btn btn-outline-primary" style="margin-left: 10px;margin-right: 10px;"
-                (click)="addLike(eventId)">
+                (click)="addLike(event,eventId)">
                 Recommended: {{event.like}}
               </button>
-              <button type="button" class="btn btn-outline-primary" (click)="addDisLike(eventId)">
+              <button type="button" class="btn btn-outline-primary" (click)="addDisLike(event,eventId)">
                 Not Recommended: {{event.disLike}}
               </button>
               <button type="button" class="btn btn-outline-primary" style="margin-left: 10px;" *ngIf="event.seats>0"

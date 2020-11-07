@@ -33,19 +33,21 @@ export class EventListComponent implements OnInit {
       }
     })
   }
+  
+  // add likes and save them in the database
 
-  sportEvents(){
-    this.events.filter((event: any)=>{console.log(event)})
-  }
-
-  addLike(eventId){
+  addLike(event,eventId){
     this.events[eventId].like=this.events[eventId].like+1;
+    this.dataService.updateEventById(event,event._id).subscribe(res=>{})
   }
 
-  addDisLike(eventId){
+  // add dislikes and save them in the database
+  addDisLike(event,eventId){
     this.events[eventId].disLike=this.events[eventId].disLike+1;
+    this.dataService.updateEventById(event,event._id).subscribe(res=>{})
   }
 
+  // add event to the favorit event
   participate(event){
     this.favoritService.favorites.push(event)
   }

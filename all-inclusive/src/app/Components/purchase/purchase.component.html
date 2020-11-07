@@ -23,15 +23,15 @@
             </div>
           </div>
           <div style="position: absolute;left:30px;bottom: 20px;">
-            <button id= [eventId]  type="button" class="btn btn-outline-primary" style="margin-left: 10px;margin-right: 50px;"
+            <button  type="button" class="btn btn-outline-primary" style="margin-left: 10px;margin-right: 50px;"
               *ngIf="registration==='reserve' || specificEvent!= eventId" (click)="caculTotal(event.price,event.seats,eventId)">
               Reservation
             </button>
-            <button id= [eventId] type="button" class="btn btn-outline-primary" style="margin-left: 10px;margin-right: 50px;"
+            <button type="button" class="btn btn-outline-primary" style="margin-left: 10px;margin-right: 50px;"
               *ngIf="registration==='confirm'&&specificEvent== eventId" (click)="confirm(event)">
               Confirm
             </button>
-            <button id= [eventId] type="button" class="btn btn-outline-primary" (click)="reject(eventId)">
+            <button type="button" class="btn btn-outline-primary" (click)="reject(eventId)">
               Cancel
             </button>
           </div>
