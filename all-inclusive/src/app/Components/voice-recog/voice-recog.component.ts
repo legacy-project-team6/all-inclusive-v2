@@ -27,7 +27,6 @@ export class VoiceRecogComponent implements OnInit {
   ngOnInit(): void {
     this.voiceGuide();
     setTimeout(() => {
-      console.log(this.choice,' aaa')
       if (this.choice.length >0) {
         return responsiveVoice.speak(
           'congratulation its available! please give us your number phone so we can contact you',
