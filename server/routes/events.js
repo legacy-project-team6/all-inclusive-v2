@@ -10,6 +10,25 @@ router.get("/", async (req, res) => {
     res.status(400).send(err);
   }
 });
+//post request for searched data;
+
+router.post("/search", async (req, res) => {
+  const keyword = req.body.searchWords;
+  let filtred  = [];
+  try {
+    await Event.find({}, (err, data) => {      
+      data.forEach(event => {
+        if(event.type.substring(0,keyword.length).toLowerCase() === keyword.toLowerCase() || event.place.substring(0,keyword.length).toLowerCase() === keyword.toLowerCase()) {
+        return filtred.push(event)
+        }
+      });
+      res.json(filtred)
+      
+    });
+  } catch (err) {
+    res.status(500).send(err);
+  }
+});
 
 router.post("/add", async (req, res) => {
   console.log(req.body);
@@ -42,7 +61,7 @@ router.delete("/", async (req, res) => {
   res.json({ message: "all data deleted" });
 });
 
-router.post("/:id", async (req, res) => {
+router.get("/:id", async (req, res) => {
   await Event.findById(req.params.id, (err, data) => {
     res.json(data);
   });
@@ -58,8 +77,11 @@ router.delete("/:id", async (req, res) => {
 });
 
 router.put("/:id", async (req, res) => {
-  await Event.findByIdAndUpdate(req.params.id, req.body);
-  res.json({ message: "specific data updated" });
+  await Event.findByIdAndUpdate(req.params.id, req.body,{returnOriginal:false},(err,data)=>{
+    res.json(data)
+  })
 });
+
+
 
 module.exports = router;

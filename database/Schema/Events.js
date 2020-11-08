@@ -1,4 +1,7 @@
 const mongoose = require("mongoose");
+const db = require ("../index.js");
+mongoose.Promise = global.Promise;
+
 const eventSchema = new mongoose.Schema(
   {
     name: { type: String, required: true },
@@ -16,4 +19,5 @@ const eventSchema = new mongoose.Schema(
     timestamps: true,
   }
 );
-module.exports = mongoose.model("Event", eventSchema);
+const Events = mongoose.model("Event", eventSchema);
+module.exports = Events;

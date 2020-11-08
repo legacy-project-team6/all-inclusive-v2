@@ -1,9 +1,28 @@
-<div [className]="'companyMain'">
-    <div [className]="'CompanyInfo'">
-      <app-side-nav-comp  [company]="company"></app-side-nav-comp>
-      <app-messages [className]="'msg'"></app-messages>
-      </div>
-    <div [className]="'list'">
+<div class="container mt-5">
+  <div class="row justify-content-md-center">
+    <app-side-nav-comp class="col-5" [company]="company"></app-side-nav-comp>
+    <app-messages class="col-5"></app-messages>
+  </div>
+  <div>
       <!-- <app-event-list></app-event-list> -->
-    </div>
+      <!-- disabled people requests -->
+      <div>
+      <mdb-card cascade="true" wider="true">
+        <div class="view view-cascade gradient-card-header purple-gradient">
+          <div class="white-text ml-4">
+          <h2 class="card-header-title text-uppercase mt-4 mb-4">Urgent requests:</h2>
+        </div>
+        </div>
+        <div *ngFor="let request of requests">  
+        <mdb-card-body cascade="true">    
+          <mdb-card-text class="purple-text">
+          <p class="lead font-weight-bold">Event type: {{request.type}}</p>
+          <p class="lead font-weight-bold">Phone number: {{request.phone}}</p>
+          </mdb-card-text>     
+        </mdb-card-body >
+      </div>  
+      </mdb-card>
+     </div>
+  </div>
 </div>
+

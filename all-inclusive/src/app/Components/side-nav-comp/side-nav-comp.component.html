@@ -1,63 +1,103 @@
 
-    <!-- Container to div -->
-    <div [className]="'info'">
+    <div>
         <!-- Image to img -->
-      <img src={{company.imgUrlCompany}}/>
+      <!-- <img src={{company.imgUrlCompany}}/>
       <p>Name: {{company.name}}</p>
       <p>Email adress: {{company.emailCompany}}</p>
-      <p>Phone number: {{company.phoneNumberCompany}}</p>
+      <p>Phone number: {{company.phoneNumberCompany}}</p> -->
+
+      <mdb-card cascade="true" wider="true">
+
+        <div class="view view-cascade gradient-card-header purple-gradient">
+          <div class="white-text ml-4">
+          <h2 class="card-header-title text-uppercase mt-4 mb-4">{{company.name}}</h2>
+          <p class="lead font-weight-bold">
+            Welcome to your account</p>
+        </div>
+        </div>
+    
+        <mdb-card-body cascade="true">
+    
+          <mdb-card-text class="purple-text">
+            <p class="lead font-weight-bold">Email address: {{company.emailCompany}}</p>
+          <p class="lead font-weight-bold">Phone number: {{company.phoneNumberCompany}}</p>
+          <p class="lead font-weight-bold">Address: {{company.adress}}</p>
+          </mdb-card-text>
+    
+          <a routerLink='/home' class="indigo-text mt-1 d-flex flex-row-reverse">
+            <h5 class="waves-effect p-2" mdbWavesEffect>Check your events
+              <mdb-icon fas icon="chevron-right"></mdb-icon>
+            </h5>
+          </a>
+    
+        </mdb-card-body>
+      </mdb-card>
      </div>
-  <div [className]="'inputField'">
-      <h3>Add an event</h3>
-      <!-- form label to h2 -->
-      <h2>Event Name</h2>
-      <!-- form controle to input -->
-      <input
-        name="name"
-        placeholder="name"
-        (change)="handleChange1($event)"
-      />
-      <!-- form label to h2 -->
-      <h2>Event Type</h2>
-      <!-- form controle to input -->
-      <input
-        name="type"
-        placeholder="type"
-        (change)="handleChange2($event)"
-      />
-      <!-- form label to h2 -->
-      <h2>Event Place</h2>
-      <!-- form controle to input -->
-      <input
-        name="place"
-        placeholder="place"
-        (change)="handleChange3($event)"
-      />
-      <!-- form label to h2 -->
-      <h2>Event Date</h2>
-      <!-- From control to input -->
-      <input
-        name="date"
-        placeholder="date"
-        (change)="handleChange4($event)"
-      />
-      <!-- form label to h2 -->
-      <h2> Event Description </h2>
-      <!-- form controle to input -->
-      <input
-        name="description"
-        placeholder="description"
-        (Change)="handleChange5($event)"
-      />
-      <!-- form label to h2 -->
-      <h2>Event Image</h2>
-      <!-- form controle to input -->
-      <input
-        name="imgUrl"
-        placeholder="imgUrl"
-        (change)="handleChange6($event)"
-      />
-      <button routerLink="/home" (click)="addEvent($event)">
-        Submit
+
+
+<div class="container mb-5 mt-2">
+  <mdb-card>
+
+    <mdb-card-header class="info-color white-text text-center py-4">
+      <h5>
+        <strong>Add an event</strong>
+      </h5>
+    </mdb-card-header>
+  
+    <mdb-card-body class="px-lg-5 pt-0">
+  
+    <form
+      class="text-center"
+      style="color: #757575;"
+      [formGroup]="eventForm"
+      (ngSubmit)="onSubmit(eventForm.value)"
+    >
+      <div class="md-form mt-2">
+        <input type="text" formControlName="name" id="name" class="form-control" mdbInput/>
+        <label for="name">Name</label>
+      </div>
+  
+      <div class="md-form">
+        <input type="text" formControlName="type" id="type" class="form-control" mdbInput/>
+        <label for="type">Type</label>
+      </div>
+  
+      <div class="md-form">
+        <input type="text" formControlName="place" id="place" class="form-control" mdbInput/>
+        <label for="place">Place</label>
+      </div>
+
+      <div class="md-form">
+        <input type="text" formControlName="imgUrl" id="imgUrl" class="form-control" mdbInput/>
+        <label for="imgUrl">Image Url</label>
+      </div>
+
+      <div class="md-form">
+        <input type="date" formControlName="date" id="date" class="form-control" mdbInput/>
+        <label for="date">Date</label>
+      </div>
+
+      <div class="md-form">
+        <input type="number" formControlName="seats" id="seats" class="form-control" min="0" mdbInput/>
+        <label for="seats">Seats</label>
+      </div>
+
+      <div class="md-form">
+        <input type="number" formControlName="price" id="price" class="form-control" min="0" mdbInput/>
+        <label for="price">Price</label>
+      </div>
+  
+      <div class="md-form">
+        <textarea type="text" formControlName="description" id="description" class="form-control md-textarea" mdbInput></textarea>
+        <label for="description">Description</label>
+      </div>
+  
+      <button mdbBtn color="info" outline="true" rounded="true" block="true" class="z-depth-0 my-4 waves-effect" mdbWavesEffect type="submit">
+        Add
       </button>
-  </div>
+    </form>
+  
+    </mdb-card-body>
+  
+  </mdb-card>
+</div>

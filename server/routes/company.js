@@ -20,8 +20,8 @@ const schema = Joi.object({
 router.post("/add", async (req, res, next) => {
   //check if Company already exist
   console.log(req.body);
-  const emailExist = await Company.findOne({ email: req.body.emailCompany });
-  if (emailExist) return res.status(400).send("Email already exists");
+  const emailExist = await Company.findOne({ emailCompany: req.body.emailCompany });
+  if (emailExist) return res.status(200).json({message:"Email already exists"});
 
   try {
     //hash password
@@ -61,14 +61,14 @@ router.post("/login", async (req, res, next) => {
     const company = await Company.findOne({
       emailCompany: req.body.emailCompany,
     });
-    if (!company) return res.status(400).send("Email or password is wrong");
+    if (!company) return res.status(200).json({});
 
     //check password
     const validPass = await bcrypt.compare(
       req.body.passwordCompany,
       company.passwordCompany
     );
-    if (!validPass) return res.status(400).send("password not valid");
+    if (!validPass) return res.status(200).json({});
 
     //create and assign a token
     const token = jwt.sign({ _id: company._id }, config.get("jwt").secret);

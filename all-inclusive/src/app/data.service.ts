@@ -10,6 +10,7 @@ export class DataService {
   private _urlMessages = "http://localhost:3000/api/message";
   private _urlevents = "http://localhost:3000/api/event";
   private _urlUserEvent = "http://localhost:3000/api/userevent";
+  private _urlNeedyRequests = "http://localhost:3000/api/request";
 
   constructor(private httpClient: HttpClient) { }
 
@@ -58,8 +59,8 @@ export class DataService {
 
   // get event by id 
 
-  public getEventById(options){
-    return this.httpClient.post(this._urlMessages + '/:id', options)
+  public getEventById(id){
+    return this.httpClient.get(this._urlevents + '/'+id)
   }
 
   // delete all events / event by id 
@@ -74,8 +75,8 @@ export class DataService {
 
   // update event by id
 
-  public updateEventById(options){
-    return this.httpClient.put(this._urlMessages + '/:id', options)
+  public updateEventById(options,id){
+    return this.httpClient.put(this._urlevents + '/'+id, options)
   }
 
   // add many Events 
@@ -120,5 +121,20 @@ export class DataService {
     return this.httpClient.post(this._urlUserEvent + '/addmany', options)
   }
 
+  // search events by word in search bar;
 
+  public searchByWord(options){
+    return this.httpClient.post(this._urlevents + "/search", options)
+  }
+
+
+  public addDisableRequest(options){
+    return this.httpClient.post(this._urlNeedyRequests + '/add', options)
+  }
+
+  // get all disabled persons requests
+
+  public getAllDisableRequest(){
+    return this.httpClient.get(this._urlNeedyRequests)
+  }
 }
