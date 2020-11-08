@@ -15,6 +15,7 @@ import {NavbarComponent} from './Components/navbar/navbar.component';
 import { SerchedEventComponent } from './components/serched-event/serched-event.component';
 import { FormsModule } from '@angular/forms';
 import { PurchaseComponent } from './Components/purchase/purchase.component';
+import { DatePipe } from '@angular/common';
 
 
 
@@ -28,6 +29,7 @@ import { PurchaseComponent } from './Components/purchase/purchase.component';
     SerchedEventComponent,
     PurchaseComponent,
     NavbarComponent
+    
   ],
   imports: [
     BrowserModule,
@@ -39,7 +41,7 @@ import { PurchaseComponent } from './Components/purchase/purchase.component';
     HttpClientModule,
     FormsModule,
   ],
-  providers: [],
+  providers: [DatePipe,NavbarComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
