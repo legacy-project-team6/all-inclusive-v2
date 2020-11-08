@@ -27,7 +27,7 @@ import { PurchaseComponent } from './Components/purchase/purchase.component';
     ScrollToTopComponent,
     SerchedEventComponent,
     PurchaseComponent,
-    NavbarComponent,
+    NavbarComponent
   ],
   imports: [
     BrowserModule,

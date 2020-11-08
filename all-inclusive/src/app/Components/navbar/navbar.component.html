@@ -1,5 +1,5 @@
 
-<mdb-navbar SideClass="navbar navbar-expand-lg navbar-dark purple lighten-1" [containerInside]="false">
+<mdb-navbar SideClass="navbar navbar-expand-lg navbar-dark purple lighten-1" [containerInside]="false" >
   <mdb-navbar-brand><a class="navbar-brand" href="#"><img class="mw-100" src="./assets/logo.png" alt="logo" style="height: 2em;"></a></mdb-navbar-brand>
 
   <links>
@@ -40,9 +40,14 @@
     </ng-template>
     <ng-template  #thenBlock>
       <li class="nav-item">
+    <!--<ul class="navbar-nav ml-auto nav-flex-icons">
+      <li class="nav-item" *ngIf="user === undefined">
+        <a class="nav-link" routerLink='login'>Login</a>
+      </li>
+      <li class="nav-item" *ngIf="user">-->
         <a class="nav-link"><mdb-icon fas icon="shopping-cart">Cart </mdb-icon></a>
       </li>
-      <li class="nav-item dropdown" dropdown>
+      <li class="nav-item dropdown" dropdown *ngIf="user">
         <a dropdownToggle mdbWavesEffect type="button" class="nav-link dropdown-toggle waves-light" mdbWavesEffect>Account
           </a>
         <div *dropdownMenu class="dropdown-menu dropdown-menu-right dropdown dropdown-primary" role="menu">
