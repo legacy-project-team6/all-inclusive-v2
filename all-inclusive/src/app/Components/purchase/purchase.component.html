@@ -1,5 +1,5 @@
 <div class="event" *ngFor="let event of favorites index as eventId">
-  <div class="card mb-3">
+  <div class="card mb-3" id="{{eventId}}">
     <div class="row no-gutters">
       <div class="col-md-8">
         <img src="{{event.imgUrl}}" class="card-img" style="max-height: 500px;" alt="{{event.name}}">
@@ -15,13 +15,14 @@
             <p class="card-text">Price: {{event.price}} DT</p>
             <p class="card-text" *ngIf="registration==='reserve'" > Seats remain: {{event.seats}}</p>
             <p class="card-text" *ngIf="registration==='confirm'&&specificEvent== eventId"> Seats remain: {{[event.seats]-[value]}}</p>
-            <input type="number" placeholder="Number of reservations" [ngModel]="value" (ngModelChange)="modelChangeFn($event)" (ngModelChange)="modelChange($event)" *ngIf="registration==='reserve'">
-            <p *ngIf="(registration==='confirm'&& specificEvent== eventId)">Total price of reservation(s): {{total*event.price}}</p>
+            <input type="number" placeholder="Number of reservations" ng-value="event"
+             (click)="clickedInput(eventId)" [ngModel]="event.name" (ngModelChange)="modelChangeFn($event)" (ngModelChange)="modelChange($event)" *ngIf="registration==='reserve'">
+            <p *ngIf="specificEvent== eventId">Total price of reservation(s): {{total*event.price}}</p>
             <div *ngIf="(registration==='confirm'&& specificEvent== eventId)">
               <p class="card-text" >{{value}} Seat(s) has been reserved for you</p>
             </div>
           </div>
-          <div style="position: absolute;left:30px;bottom: 20px;">
+          <div>
             <button id={{eventId}} type="button" class="btn btn-outline-primary" style="margin-left: 10px;margin-right: 50px;"
               *ngIf="registration==='reserve' || specificEvent!= eventId" (click)="caculTotal(event.seats,eventId)">
               Reservation
