@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FavoritService } from 'src/app/favorit.service';
+import { UserService } from 'src/app/user.service';
 import { DataService } from '../../data.service';
-
 
 
 @Component({
@@ -15,8 +15,8 @@ export class EventListComponent implements OnInit {
   sports=[];
   culture=[];
   trips=[];
-  listCondition=this.favoritService.listCondition;
-  constructor(private favoritService: FavoritService,private dataService: DataService) { }
+  listCondition=this.userService.currentUser
+  constructor(private favoritService: FavoritService,private dataService: DataService, private userService : UserService) { }
 
   ngOnInit(): void {
     this.dataService.getAllEvents().subscribe((events: any[])=>{

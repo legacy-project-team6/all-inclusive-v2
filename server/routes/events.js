@@ -14,9 +14,7 @@ router.get("/", async (req, res) => {
 
 router.post("/search", async (req, res) => {
   const keyword = req.body.searchWords;
-  console.log(keyword);
   let filtred  = [];
-  console.log(keyword);
   try {
     await Event.find({}, (err, data) => {      
       data.forEach(event => {

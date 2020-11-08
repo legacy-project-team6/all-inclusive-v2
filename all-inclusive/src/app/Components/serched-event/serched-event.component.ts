@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-
+import {FavoritService} from '../../favorit.service'
 
 @Component({
   selector: 'app-serched-event',
@@ -7,10 +7,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./serched-event.component.css']
 })
 export class SerchedEventComponent implements OnInit {
+  events: any ;
 
-  constructor() { }
-
-  ngOnInit(): void {
+  constructor(private favoritservice: FavoritService) { 
+    
   }
 
+  ngOnInit(): void {
+    setInterval(()=>{this.events=this.favoritservice.getSearchedItems()}, 100)
+  }
+  
 }
