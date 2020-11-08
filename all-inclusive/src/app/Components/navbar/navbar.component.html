@@ -26,16 +26,25 @@
     <ul class="navbar-nav mr-auto">
       <div class="nav-item">
         <a class="nav-link"> 
-          <input mdbInput type="text" class="form-control mr-sm-2" placeholder="Search" aria-label="Search" style="display: inline; width: auto;" (change)="onSearch($event)"> 
-          <mdb-icon fas icon="search"></mdb-icon></a>
+          <input mdbInput type="text" class="form-control mr-sm-2" placeholder="Search" aria-label="Search" style="display: inline; width: auto;"  (change)="onSearch($event)"> 
+          <mdb-icon fas icon="search" routerLink="searched"></mdb-icon></a>
       </div>
     </ul>
  
-    <ul class="navbar-nav ml-auto nav-flex-icons">
+    <ul class="navbar-nav ml-auto nav-flex-icons" >
+      <div *ngIf="user._id; then thenBlock else elseBlock"></div>
+      <ng-template #elseBlock>
+      <li class="nav-item">
+        <a class="nav-link" routerLink='login'>Login</a>
+      </li>
+    </ng-template>
+    <ng-template  #thenBlock>
+      <li class="nav-item">
+    <!--<ul class="navbar-nav ml-auto nav-flex-icons">
       <li class="nav-item" *ngIf="user === undefined">
         <a class="nav-link" routerLink='login'>Login</a>
       </li>
-      <li class="nav-item" *ngIf="user">
+      <li class="nav-item" *ngIf="user">-->
         <a class="nav-link"><mdb-icon fas icon="shopping-cart">Cart </mdb-icon></a>
       </li>
       <li class="nav-item dropdown" dropdown *ngIf="user">
@@ -46,6 +55,7 @@
           <a class="dropdown-item waves-light" mdbWavesEffect href="#">Log out</a>
         </div>
       </li>
+    </ng-template>
     </ul>
   </links>
 

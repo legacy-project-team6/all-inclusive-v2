@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import {DatePipe} from '@angular/common';
+// import {DatePipe} from '@angular/common';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppRoutingModule, routingComponents } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -26,7 +26,8 @@ import { PurchaseComponent } from './Components/purchase/purchase.component';
     SideNavComponent,
     ScrollToTopComponent,
     SerchedEventComponent,
-    PurchaseComponent
+    PurchaseComponent,
+    NavbarComponent
   ],
   imports: [
     BrowserModule,
@@ -38,7 +39,7 @@ import { PurchaseComponent } from './Components/purchase/purchase.component';
     HttpClientModule,
     FormsModule,
   ],
-  providers: [DatePipe, NavbarComponent],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

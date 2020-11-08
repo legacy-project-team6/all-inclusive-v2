@@ -3,7 +3,6 @@ import { FavoritService } from 'src/app/favorit.service';
 import { DataService } from '../../data.service';
 
 
-
 @Component({
   selector: 'app-event-list',
   templateUrl: './event-list.component.html',
