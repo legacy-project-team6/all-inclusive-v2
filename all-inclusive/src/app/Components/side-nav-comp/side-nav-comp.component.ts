@@ -8,6 +8,7 @@ import { DataService } from '../../data.service';
 })
 export class SideNavCompComponent implements OnInit {
   @Input() company: any;
+  eventForm;
   eventName: string;
   eventType: string;
   eventPlace: string;
@@ -48,6 +49,9 @@ export class SideNavCompComponent implements OnInit {
     this.dataService.getAllEvents().subscribe(data => {
       console.log(data)
     })
+  }
+  onSubmit() {
+
   }
 
 }
