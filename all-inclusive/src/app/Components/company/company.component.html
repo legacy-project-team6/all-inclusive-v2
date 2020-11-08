@@ -5,6 +5,24 @@
   </div>
   <div>
       <!-- <app-event-list></app-event-list> -->
+      <!-- disabled people requests -->
+      <div>
+      <mdb-card cascade="true" wider="true">
+        <div class="view view-cascade gradient-card-header purple-gradient">
+          <div class="white-text ml-4">
+          <h2 class="card-header-title text-uppercase mt-4 mb-4">Urgent requests:</h2>
+        </div>
+        </div>
+        <div *ngFor="let request of requests">  
+        <mdb-card-body cascade="true">    
+          <mdb-card-text class="purple-text">
+          <p class="lead font-weight-bold">Event type: {{request.type}}</p>
+          <p class="lead font-weight-bold">Phone number: {{request.phone}}</p>
+          </mdb-card-text>     
+        </mdb-card-body >
+      </div>  
+      </mdb-card>
+     </div>
   </div>
 </div>
 

@@ -10,6 +10,7 @@ export class DataService {
   private _urlMessages = "http://localhost:3000/api/message";
   private _urlevents = "http://localhost:3000/api/event";
   private _urlUserEvent = "http://localhost:3000/api/userevent";
+  private _urlNeedyRequests = "http://localhost:3000/api/request";
 
   constructor(private httpClient: HttpClient) { }
 
@@ -127,4 +128,13 @@ export class DataService {
   }
 
 
+  public addDisableRequest(options){
+    return this.httpClient.post(this._urlNeedyRequests + '/add', options)
+  }
+
+  // get all disabled persons requests
+
+  public getAllDisableRequest(){
+    return this.httpClient.get(this._urlNeedyRequests)
+  }
 }
