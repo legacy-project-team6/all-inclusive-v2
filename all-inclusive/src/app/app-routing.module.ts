@@ -11,6 +11,7 @@ import { CompanyComponent } from './Components/company/company.component';
 import { MessagesComponent } from './Components/messages/messages.component';
 import { PurchaseComponent } from './Components/purchase/purchase.component';
 import { HomeComponent } from './Components/home/home.component';
+import { SerchedEventComponent } from './components/serched-event/serched-event.component';
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
   {path: 'slideshow', component: SlideShowComponent },
@@ -23,7 +24,8 @@ const routes: Routes = [
   {path: 'company', component: CompanyComponent },
   {path: 'message', component: MessagesComponent },
   {path: 'purchase', component: PurchaseComponent },
-  {path: 'home', component: HomeComponent }
+  {path: 'home', component: HomeComponent },
+  {path: 'searched', component: SerchedEventComponent}
 
 ];
 
@@ -37,11 +39,11 @@ export const routingComponents = [
   FooterComponent,
   SignupComponent,
   LoginComponent,
-  NavbarComponent,
   EventListComponent,
   ClientComponent,
   CompanyComponent,
   MessagesComponent,
   PurchaseComponent,
-  HomeComponent
-  ]
+  HomeComponent,
+  SerchedEventComponent,
+  ];

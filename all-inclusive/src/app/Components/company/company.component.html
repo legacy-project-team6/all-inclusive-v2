@@ -1,9 +1,10 @@
-<div [className]="'companyMain'">
-    <div [className]="'CompanyInfo'">
-      <app-side-nav-comp  [company]="company"></app-side-nav-comp>
-      <app-messages [className]="'msg'"></app-messages>
-      </div>
-    <div [className]="'list'">
+<div class="container mt-5">
+  <div class="row justify-content-md-center">
+    <app-side-nav-comp class="col-5" [company]="company"></app-side-nav-comp>
+    <app-messages class="col-5"></app-messages>
+  </div>
+  <div>
       <!-- <app-event-list></app-event-list> -->
-    </div>
+  </div>
 </div>
+
