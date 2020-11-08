@@ -121,7 +121,12 @@ export class DataService {
     return this.httpClient.post(this._urlUserEvent + '/addmany', options)
   }
 
-  // add a disabled person request 
+  // search events by word in search bar;
+
+  public searchByWord(options){
+    return this.httpClient.post(this._urlevents + "/search", options)
+  }
+
 
   public addDisableRequest(options){
     return this.httpClient.post(this._urlNeedyRequests + '/add', options)

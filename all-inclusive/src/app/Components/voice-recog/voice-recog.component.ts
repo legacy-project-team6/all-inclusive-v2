@@ -27,7 +27,8 @@ export class VoiceRecogComponent implements OnInit {
   ngOnInit(): void {
     this.voiceGuide();
     setTimeout(() => {
-      if (this.choice) {
+      console.log(this.choice,' aaa')
+      if (this.choice.length >0) {
         return responsiveVoice.speak(
           'congratulation its available! please give us your number phone so we can contact you',
           'UK English Female',
@@ -54,14 +55,14 @@ export class VoiceRecogComponent implements OnInit {
                       this.dataService.addDisableRequest({type: this.choice.substring(0,this.choice.indexOf(';')),phone: this.phone}).subscribe(response => {
                         console.log(response)
                       })
-                } else {
-                  responsiveVoice.speak(
-                    'could you repeatfrom the begenning please?'
-                  );
                 }
               });
             },
           }
+        );
+      } else {
+        responsiveVoice.speak(
+          'sorry! i think we misheard you, could you refresh and repeat please?'
         );
       }
     }, 25000);
@@ -81,7 +82,6 @@ export class VoiceRecogComponent implements OnInit {
             .map((result) => result.transcript)
             .join('');
           this.words = transcript;
-          console.log(transcript);
           if (transcript.toLowerCase() === 'yes') {
             return this.voiceGuide(
               'what kind of events do you want to join?and please wait a moment so we can check its availability'

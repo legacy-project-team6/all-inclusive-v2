@@ -1,6 +1,6 @@
 const express = require('express');
 const bodyParser = require('body-parser');
-const mongoose = require('mongoose');
+
 const app = express();
 const PORT = 3000;
 const cors = require('cors')
@@ -11,19 +11,7 @@ app.use(bodyParser.urlencoded({extended: true}));
 
 app.use(express.static(__dirname +'/../all-inclusive/dist/all-inclusive'));
 
-//database connection 
-const Url ='mongodb://localhost:27017/allinclusive'
-mongoose.connect(Url,{
-  useNewUrlParser:true,
-  useUnifiedTopology:true,
-  useFindAndModify:false,
-  useCreateIndex:true
-})
-const Connection = mongoose.connection ;
-Connection.on('error',console.error.bind(console,'connection error:'))
-Connection.once('open',function(){
-console.log('Database is connected ')
-})
+
 
 //Routes middlewares
 app.use('/api/user', require('./routes/auth.js'));

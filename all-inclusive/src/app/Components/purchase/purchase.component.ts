@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FavoritService } from 'src/app/favorit.service';
 import {DataService} from 'src/app/data.service';
+import {FormsModule} from '@angular/forms'
+
 @Component({
   selector: 'app-purchase',
   templateUrl: './purchase.component.html',
@@ -15,7 +17,7 @@ export class PurchaseComponent implements OnInit {
   // variables
   favorites = this.favoritService.favorites;
   value = "";
-  total: Number;
+  total="";
   registration = "reserve";
   specificEvent;
 
@@ -23,14 +25,16 @@ export class PurchaseComponent implements OnInit {
   }
  
   // update the input of number of reservation 
-  update(value,price) { this.value = value; this.total=value*price  }
-
+  modelChangeFn(e) {
+    this.value = e;
+  }
+  modelChange(e) {
+    this.total = e;
+  }
 
   // calculate total price of reservation
-  caculTotal(price, seats, eventId) {
-    if(this.registration==='confirm'){
-      return window.alert(" Please confirm your reservation");
-    }
+  caculTotal( seats, eventId) {
+
     for (let i = 0; i < this.favorites.length; i++) {
       if (i === eventId) {
         this.specificEvent = eventId;
@@ -43,8 +47,8 @@ export class PurchaseComponent implements OnInit {
     if(this.value === ""){
       return window.alert('Please choose how many reservation do u need')
     }
-    this.total = Number(this.value) * price;
-    this.registration = "confirm"
+
+    this.registration = "confirm";
   }
 
 // confirm the reservation and update the database
@@ -60,7 +64,8 @@ export class PurchaseComponent implements OnInit {
     })
     this.value = ""
     window.alert('Your reservation has been confirmed')
-    this.registration = "reserve"
+    this.registration = "reserve";
+  
   }
 
   // cancel the choosing event from favorites

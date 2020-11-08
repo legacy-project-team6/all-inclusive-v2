@@ -1,4 +1,6 @@
 const mongoose = require("mongoose");
+const db = require ("../index.js");
+mongoose.Promise = global.Promise;
 const companySchema = new mongoose.Schema(
   {
     type: { type: String, required: true },
@@ -13,4 +15,5 @@ const companySchema = new mongoose.Schema(
     timestamps: true,
   }
 );
-module.exports = mongoose.model("Company", companySchema);
+const Company = mongoose.model("Company", companySchema);
+module.exports = Company;

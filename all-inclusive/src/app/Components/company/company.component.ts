@@ -1,6 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { DataService } from '../../data.service'
-
+import { UserService } from 'src/app/user.service';
 
 @Component({
   selector: 'app-company',
@@ -9,15 +8,11 @@ import { DataService } from '../../data.service'
 })
 export class CompanyComponent implements OnInit {
   // @Input() company: any ;
-  company: any = {name: 'eb', email: 'emailCompany', phoneNumberCompany: 12345 , imgUrlCompany: "urlimg"}
-  requests;
-  constructor(private dataService: DataService) { }
+  company: any;
+  constructor(private userService: UserService) { }
 
   ngOnInit(): void {
-    this.dataService.getAllDisableRequest().subscribe(data => {
-      this.requests = data
-    })
-
+    this.company = this.userService.getCurrentUser()
   }
 
 }
