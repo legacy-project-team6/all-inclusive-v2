@@ -1,4 +1,4 @@
-<div *ngIf="listCondition==='user'">
+<!-- <div *ngIf="listCondition">
   <div class="event" *ngFor="let event of events index as eventId">
     <div class="card mb-3">
       <div class="row no-gutters">
@@ -34,50 +34,46 @@
       </div>
     </div>
   </div>
-</div>
-
-<div class="row justify-content-md-center">
-  <div class="col-md-6">
+</div> -->
+<div *ngIf="listCondition">
+<div class="row justify-content-md-center" *ngFor="let event of events index as eventId">
+  <div class="col-md-8 mb-5" >
     <!--Card-->
     <mdb-card cascade="true">
   
       <!--Card image-->
-      <div class="view view-cascade overlay waves-light" mdbWavesEffect>
-        <mdb-card-img src="https://mdbootstrap.com/img/Photos/Others/men.jpg"></mdb-card-img>
-        <a>
-          <div class="mask rgba-white-slight"></div>
-        </a>
+      <div>
+        <img src="{{event.imgUrl}}" class="card-img" style="max-height: 20em;" alt="{{event.name}}">
       </div>
       <!--/Card image-->
   
       <mdb-card-body cascade="true" class="text-center pb-0 px-0">
         <!--Card content-->
-        <h4 class="card-title">
-          <strong>Billy Cullen</strong>
+        <h4 class="card-title text-uppercase">
+          <strong>{{event.name}}</strong>
         </h4>
-        <h5>Web developer</h5>
+        <h5 class="text-capitalize">{{event.type}} Event in {{event.place}}</h5>
   
-        <mdb-card-text>
-          Sed ut perspiciatis unde omnis iste natus sit voluptatem accusantium doloremque laudantium, totam rem
-          aperiam.
+        <mdb-card-text class="text-justify ml-4 mr-4">
+          {{event.description}}
+          <div class="card-text font-weight-bolder">Price: {{event.price}} DT</div>
+            <div class="card-text font-weight-bolder" *ngIf="event.seats>0" > Seats remaining: {{event.seats}}</div>
         </mdb-card-text>
-  
-        <!--Facebook-->
-        <a type="button" mdbBtn floating="true" size="sm" color="fb" class="waves-light" mdbWavesEffect>
-          <mdb-icon fab icon="facebook"></mdb-icon>
-        </a>
-        <!--Twitter-->
-        <a type="button" mdbBtn floating="true" size="sm" color="tw" class="waves-light" mdbWavesEffect>
-          <mdb-icon fab icon="twitter"></mdb-icon>
-        </a>
-        <!--Google +-->
-        <a type="button" mdbBtn floating="true" size="sm" color="dribbble" class="waves-light" mdbWavesEffect>
-          <mdb-icon fab icon="dribbble"></mdb-icon>
-        </a>
+        
+        <!--Buttons-->
+        <button mdbBtn type="button" color="default" style="border-radius: 10em;" mdbWavesEffect (click)="addLike(event,eventId)">
+            Recommend: {{event.like}}
+        </button>
+        <button mdbBtn type="button" color="danger" style="border-radius: 10em;" mdbWavesEffect (click)="addDisLike(event,eventId)">
+            Disrecommend: {{event.disLike}}
+        </button>
+        <button mdbBtn type="button" color="info" style="border-radius: 10em;" mdbWavesEffect *ngIf="event.seats>0" (click)="participate(event,eventId)">
+            Participate
+        </button>
   
         <!-- Card footer -->
         <div class="card-footer text-muted text-center mt-4">
-          2 days ago
+          Join us on {{event.date}}
         </div>
   
       </mdb-card-body>
@@ -87,8 +83,9 @@
     <!--/.Card-->
   </div>
   </div>
+</div>
 
-<div *ngIf="listCondition==='home'">
+<div *ngIf="listCondition=== undefined">
   <div style="padding:1cm">
   <h1 style="border-bottom: 3px solid black;margin-bottom:1cm">Sport</h1>
   <div class="row row-cols-1 row-cols-md-2" >
