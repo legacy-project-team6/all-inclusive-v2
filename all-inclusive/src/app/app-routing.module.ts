@@ -39,11 +39,11 @@ export const routingComponents = [
   FooterComponent,
   SignupComponent,
   LoginComponent,
-  NavbarComponent,
   EventListComponent,
   ClientComponent,
   CompanyComponent,
   MessagesComponent,
   PurchaseComponent,
-  HomeComponent
-  ]
+  HomeComponent,
+  SerchedEventComponent
+  ];
