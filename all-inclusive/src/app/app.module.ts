@@ -11,6 +11,7 @@ import { SideNavCompComponent } from './Components/side-nav-comp/side-nav-comp.c
 import { SideNavComponent } from './Components/side-nav/side-nav.component';
 import { ScrollToTopComponent } from './Components/scroll-to-top/scroll-to-top.component';
 import { HttpClientModule } from '@angular/common/http';
+import { VoiceRecogComponent } from './Components/voice-recog/voice-recog.component';
 import {NavbarComponent} from './Components/navbar/navbar.component';
 import { SerchedEventComponent } from './components/serched-event/serched-event.component';
 import { FormsModule } from '@angular/forms';
@@ -26,6 +27,7 @@ import { DatePipe } from '@angular/common';
     SideNavCompComponent,
     SideNavComponent,
     ScrollToTopComponent,
+    VoiceRecogComponent,
     SerchedEventComponent,
     PurchaseComponent,
     NavbarComponent
