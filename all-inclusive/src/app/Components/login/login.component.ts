@@ -33,11 +33,12 @@ export class LoginComponent implements OnInit {
     if(userLoginInfo.type === 'client') {
       const user = {email: userLoginInfo.email, password: userLoginInfo.password}
       this.userService.logInClient(user).subscribe((results:any) => {
-        this.userService.setCurrentUser(results);
         if(Object.keys(results).length) {
+          this.userService.setCurrentUser(results);
           this.router.navigate([results.type]);
           console.log('success')
         } else {
+          this.userService.setCurrentUser(undefined);
           alert("Please verify your email and/or password, and if you don't have an account please sign up!")
         }
       })

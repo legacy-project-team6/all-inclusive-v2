@@ -120,5 +120,11 @@ export class DataService {
     return this.httpClient.post(this._urlUserEvent + '/addmany', options)
   }
 
+  // search events by word in search bar;
+
+  public searchByWord(options){
+    return this.httpClient.post(this._urlevents + "/search", options)
+  }
+
 
 }
