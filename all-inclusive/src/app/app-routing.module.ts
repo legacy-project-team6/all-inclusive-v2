@@ -39,7 +39,6 @@ export const routingComponents = [
   FooterComponent,
   SignupComponent,
   LoginComponent,
-  NavbarComponent,
   EventListComponent,
   ClientComponent,
   CompanyComponent,
@@ -47,4 +46,4 @@ export const routingComponents = [
   PurchaseComponent,
   HomeComponent,
   SerchedEventComponent
-  ]
+  ];

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {FavoritService} from '../../favorit.service'
-// declare const getSearchedItems: any;
+
 @Component({
   selector: 'app-serched-event',
   templateUrl: './serched-event.component.html',
