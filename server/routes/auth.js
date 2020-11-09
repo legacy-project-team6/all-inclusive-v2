@@ -16,6 +16,7 @@ const schema = Joi.object({
   phoneNumber: Joi.number().required(),
   specialNeed: Joi.boolean().required(),
   imgUrl: Joi.string().required(),
+  address: Joi.string().required()
 });
 
 router.post("/add", async (req, res, next) => {
@@ -44,7 +45,7 @@ router.post("/add", async (req, res, next) => {
     const savedUser = await newUser.save();
     res.send(savedUser);
   } catch (error) {
-    if (error.isJoi === true) res.status(400).send(error.details[0].message);
+    if (error.isJoi === true) res.status(500).json(error.details[0].message);
     next(error);
   }
 });
@@ -71,7 +72,7 @@ router.post("/login", async (req, res, next) => {
     const token = jwt.sign({ _id: user._id }, config.get("jwt").secret);
     res.status(200).header("auth-token", token).json(user);
   } catch (error) {
-    if (error.isJoi === true) res.status(400).send(error.details[0].message);
+    if (error.isJoi === true) res.status(500).json(error.details[0].message);
     next(error);
   }
 });
