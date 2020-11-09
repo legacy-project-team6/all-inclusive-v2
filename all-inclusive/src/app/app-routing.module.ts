@@ -11,6 +11,7 @@ import { CompanyComponent } from './Components/company/company.component';
 import { MessagesComponent } from './Components/messages/messages.component';
 import { PurchaseComponent } from './Components/purchase/purchase.component';
 import { HomeComponent } from './Components/home/home.component';
+import { VoiceRecogComponent } from './Components/voice-recog/voice-recog.component'
 import { SerchedEventComponent } from './components/serched-event/serched-event.component';
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -25,6 +26,7 @@ const routes: Routes = [
   {path: 'message', component: MessagesComponent },
   {path: 'purchase', component: PurchaseComponent },
   {path: 'home', component: HomeComponent },
+  {path: 'home', component: VoiceRecogComponent },
   {path: 'searched', component: SerchedEventComponent}
 
 ];
@@ -45,5 +47,5 @@ export const routingComponents = [
   MessagesComponent,
   PurchaseComponent,
   HomeComponent,
-  SerchedEventComponent
+  SerchedEventComponent,
   ];

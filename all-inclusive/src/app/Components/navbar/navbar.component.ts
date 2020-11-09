@@ -9,23 +9,19 @@ import {UserService} from '../../user.service';
 @Component({
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',
-  styleUrls: ['./navbar.component.css']
+  styleUrls: ['./navbar.component.css'],
 })
 export class NavbarComponent implements OnInit {
 
-  constructor(private dataService: DataService, private favoritservice: FavoritService, private userservice: UserService) { }
-  
   searchItems ;
   user;
   searchWords: string = "";
-  constructor(private dataService: DataService, private userService: UserService) { 
-    
-    
-  }
+  constructor(private dataService: DataService, private favoritservice: FavoritService, private userservice: UserService) { }
+  
 
   ngOnInit(): void {
     var stop = setInterval(()=> {
-      this.user = this.userService.getCurrentUser();
+      this.user = this.userservice.getCurrentUser();
     if(this.user !== undefined) {
       clearInterval(stop);
     }

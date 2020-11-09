@@ -27,10 +27,15 @@ export class PurchaseComponent implements OnInit {
   // update the input of number of reservation 
   modelChangeFn(e) {
     this.value = e;
+  }
+  modelChange(e) {
     this.total = e;
   }
-
-
+  clickedInput(id){
+    this.value="";
+    this.total="";
+    this.specificEvent=id;
+  }
   // calculate total price of reservation
   caculTotal( seats, eventId) {
 
