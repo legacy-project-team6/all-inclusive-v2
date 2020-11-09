@@ -32,8 +32,8 @@ export class PurchaseComponent implements OnInit {
     this.total = e;
   }
   clickedInput(id){
-    this.value="";
-    this.total="";
+    // this.value="";
+    // this.total="";
     this.specificEvent=id;
   }
   // calculate total price of reservation
@@ -57,7 +57,7 @@ export class PurchaseComponent implements OnInit {
 
 // confirm the reservation and update the database
 
-  confirm(favorite) {
+  confirm(favorite, id) {
     favorite.seats=favorite.seats-Number(this.value)
     this.dataService.updateEventById(favorite,favorite._id).subscribe(res=>{
       for(let i = 0; i < this.favorites.length; i++){
@@ -69,6 +69,11 @@ export class PurchaseComponent implements OnInit {
     this.value = ""
     window.alert('Your reservation has been confirmed')
     this.registration = "reserve";
+    for (let i = 0; i < this.favorites.length; i++) {
+      if (i === id) {
+        this.favorites.splice(i, 1)
+      }
+    }
   
   }
 
