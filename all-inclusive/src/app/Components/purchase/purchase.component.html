@@ -25,10 +25,10 @@
           <div>
             <button id={{eventId}} type="button" class="btn btn-outline-primary" style="margin-left: 10px;margin-right: 50px;"
               *ngIf="registration==='reserve' || specificEvent!= eventId" (click)="caculTotal(event.seats,eventId)">
-              Reservation
+              Reserve
             </button>
             <button id={{eventId}} type="button" class="btn btn-outline-primary" style="margin-left: 10px;margin-right: 50px;"
-              *ngIf="registration==='confirm'&&specificEvent== eventId" (click)="confirm(event)">
+              *ngIf="registration==='confirm'&&specificEvent== eventId" (click)="confirm(event, eventId)">
               Confirm
             </button>
             <button type="button" class="btn btn-outline-primary" (click)="reject(eventId)">

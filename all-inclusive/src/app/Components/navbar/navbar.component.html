@@ -26,7 +26,7 @@
     <ul class="navbar-nav mr-auto">
       <div class="nav-item">
         <a class="nav-link"> 
-          <input mdbInput type="text" class="form-control mr-sm-2" placeholder="Search" aria-label="Search" style="display: inline; width: auto;"  (change)="onSearch($event)"> 
+          <input mdbInput type="text" class="form-control mr-sm-2" placeholder="Search" aria-label="Search" style="display: inline; width: auto;" value="{{searchWords}}" (change)="onSearch($event)"> 
           <mdb-icon fas icon="search" routerLink="searched"></mdb-icon></a>
       </div>
     </ul>

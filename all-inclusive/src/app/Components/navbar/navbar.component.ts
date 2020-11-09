@@ -32,6 +32,7 @@ export class NavbarComponent implements OnInit {
     this.searchWords= e.target.value;
     this.dataService.searchByWord({searchWords:this.searchWords}).subscribe( (data) => {
       this.favoritservice.setSearchedItems(data);
+      this.searchWords = '';
     });
     
   }
